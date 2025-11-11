@@ -91,33 +91,33 @@ export default function GOILDashboard() {
     // Mock GOIL data - in real implementation, this would come from API
     setData({
       overview: {
-        totalSales: '125.3M liters',
-        marketShare: '28.5%',
-        efficiency: '79.8%',
-        customerSatisfaction: '87.2%',
-        networkSize: '385 stations',
-        revenue: '₵1.2B'
+        totalSales: '98.7M liters',
+        marketShare: '22.3%',
+        efficiency: '68.4%',
+        customerSatisfaction: '74.8%',
+        networkSize: '358 stations',
+        revenue: '₵980M'
       },
       operations: {
         sales: [
-          { product: 'Petrol (Super)', volume: '45.2M liters', revenue: '₵580M', growth: '+8.5%' },
-          { product: 'Diesel', volume: '52.8M liters', revenue: '₵697M', growth: '+12.3%' },
-          { product: 'Kerosene', volume: '8.5M liters', revenue: '₵97M', growth: '+3.2%' },
-          { product: 'LPG', volume: '18.8M kg', revenue: '₵203M', growth: '+15.7%' }
+          { product: 'Petrol (Super)', volume: '35.8M liters', revenue: '₵485M', growth: '-2.3%' },
+          { product: 'Diesel', volume: '42.3M liters', revenue: '₵398M', growth: '+1.8%' },
+          { product: 'Kerosene', volume: '6.2M liters', revenue: '₵67M', growth: '-5.4%' },
+          { product: 'LPG', volume: '14.4M kg', revenue: '₵130M', growth: '+3.2%' }
         ],
         stations: [
-          { region: 'Greater Accra', stations: 85, performance: 87, revenue: '₵385M' },
-          { region: 'Ashanti', stations: 72, performance: 84, revenue: '₵298M' },
-          { region: 'Western', stations: 48, performance: 82, revenue: '₵195M' },
-          { region: 'Eastern', stations: 45, performance: 79, revenue: '₵168M' },
-          { region: 'Northern', stations: 35, performance: 76, revenue: '₵125M' }
+          { region: 'Greater Accra', stations: 78, performance: 72, revenue: '₵325M' },
+          { region: 'Ashanti', stations: 68, performance: 69, revenue: '₵245M' },
+          { region: 'Western', stations: 42, performance: 65, revenue: '₵155M' },
+          { region: 'Eastern', stations: 38, performance: 62, revenue: '₵128M' },
+          { region: 'Northern', stations: 32, performance: 58, revenue: '₵95M' }
         ],
         performance: [
-          { metric: 'Sales Volume', current: 87, target: 85, status: 'excellent' },
-          { metric: 'Revenue Growth', current: 92, target: 90, status: 'excellent' },
-          { metric: 'Customer Satisfaction', current: 87, target: 85, status: 'good' },
-          { metric: 'Operational Efficiency', current: 80, target: 82, status: 'needs-improvement' },
-          { metric: 'Inventory Management', current: 78, target: 80, status: 'needs-improvement' }
+          { metric: 'Sales Volume', current: 74, target: 85, status: 'needs-improvement' },
+          { metric: 'Revenue Growth', current: 68, target: 90, status: 'needs-improvement' },
+          { metric: 'Customer Satisfaction', current: 75, target: 85, status: 'needs-improvement' },
+          { metric: 'Operational Efficiency', current: 68, target: 82, status: 'needs-improvement' },
+          { metric: 'Inventory Management', current: 71, target: 80, status: 'needs-improvement' }
         ]
       },
       network: {
@@ -137,16 +137,17 @@ export default function GOILDashboard() {
           { name: 'GOIL Tamale Main', location: 'Tamale', monthlySales: '₵7.3M', performance: 85 }
         ],
         expansion: [
-          { region: 'Oti', plannedStations: 12, status: 'planning', timeline: 'Q3 2024' },
-          { region: 'North East', plannedStations: 8, status: 'planning', timeline: 'Q4 2024' },
-          { region: 'Savannah', plannedStations: 10, status: 'underway', timeline: 'Q2 2024' },
-          { region: 'Bono East', plannedStations: 15, status: 'underway', timeline: 'Q2 2024' }
+          { region: 'Oti', plannedStations: 8, status: 'planning', timeline: 'Q2 2026' },
+          { region: 'North East', plannedStations: 6, status: 'planning', timeline: 'Q3 2026' },
+          { region: 'Savannah', plannedStations: 7, status: 'underway', timeline: 'Q4 2025' },
+          { region: 'Bono East', plannedStations: 10, status: 'underway', timeline: 'Q1 2026' }
         ]
       },
       alerts: [
-        { id: '1', type: 'warning', message: 'Supply chain delays affecting Northern Region stations', timestamp: '2024-01-15T09:30:00Z' },
-        { id: '2', type: 'info', message: 'New station opening ceremony in Techiman next week', timestamp: '2024-01-14T14:20:00Z' },
-        { id: '3', type: 'critical', message: 'Fuel quality concerns at 3 stations in Eastern Region', timestamp: '2024-01-13T11:45:00Z' }
+        { id: '1', type: 'critical', message: 'Fuel price increases reducing sales volume by 15% across all regions', timestamp: '2025-11-15T09:30:00Z' },
+        { id: '2', type: 'warning', message: 'Supply chain disruptions affecting Northern Region stations - 8 days stock remaining', timestamp: '2025-11-14T14:20:00Z' },
+        { id: '3', type: 'critical', message: 'Currency depreciation increasing operational costs by 22%', timestamp: '2025-11-13T11:45:00Z' },
+        { id: '4', type: 'warning', message: 'Competition from new OMCs affecting market share in Accra', timestamp: '2025-11-12T16:20:00Z' }
       ]
     })
   }, [])

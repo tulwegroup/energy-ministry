@@ -65,12 +65,12 @@ export default function BOSTDashboard() {
   useEffect(() => {
     setData({
       overview: {
-        storageCapacity: '850,000 MT',
-        currentStock: '645,000 MT',
-        efficiency: '77.3%',
-        revenue: '₵850M',
-        depots: '12',
-        utilization: '75.9%'
+        storageCapacity: '720,000 MT',
+        currentStock: '485,000 MT',
+        efficiency: '64.2%',
+        revenue: '₵680M',
+        depots: '11',
+        utilization: '67.3%'
       },
       operations: {
         depots: [

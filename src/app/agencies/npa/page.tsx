@@ -295,7 +295,7 @@ export default function NPADashboard() {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <DollarSign className="h-5 w-5" />
-                    <span>Current Pricing</CardTitle>
+                    <span>Current Pricing</span>
                   </CardTitle>
                   <CardDescription>Latest approved petroleum product prices</CardDescription>
                 </CardHeader>

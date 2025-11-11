@@ -83,16 +83,9 @@ interface ServerData {
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [data, setData] = useState<ServerData | null>(null)
-  const [isClient, setIsClient] = useState(false)
-
-  // Initialize with server data only
-  useEffect(() => {
-    // Get server data
-    const serverData = getServerEnergyData()
-    setData(serverData)
-    setIsClient(true)
-  }, [])
+  // Initialize with server data directly to avoid loading state
+  const [data, setData] = useState<ServerData | null>(getServerEnergyData())
+  const [isClient, setIsClient] = useState(true)
 
   const agencyIcons = {
     gnpc: Building,

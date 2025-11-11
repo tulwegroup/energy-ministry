@@ -106,10 +106,10 @@ export function getServerEnergyData(): ServerEnergyData {
       { title: 'Energy Security Index', value: '82.4', status: 'warning' as const, change: '-2.1%', timestamp: SERVER_TIMESTAMP }
     ],
     financial: {
-      totalRevenue: '₵12.8B',
-      subsidies: '₵2.4B',
-      receivables: '₵3.2B',
-      liabilities: '₵2.8B',
+      totalRevenue: '₵28.7B',
+      subsidies: '₵4.8B',
+      receivables: '₵5.6B',
+      liabilities: '₵8.2B',
       lastUpdated: SERVER_TIMESTAMP
     },
     alerts: [
@@ -126,32 +126,37 @@ export function getServerEnergyData(): ServerEnergyData {
       { id: 'project-6', name: 'Tamale Distribution Network', progress: 45, cost: '$34M', variance: '-12%', status: 'at-risk' as const, lastUpdated: SERVER_TIMESTAMP }
     ],
     agencies: [
-      { id: 'gnpc', name: 'GNPC', performance: 94, compliance: 97, lastUpdated: SERVER_TIMESTAMP, metrics: { production: '178.5 kboepd', revenue: '₵8.2B', reserves: '1.8B barrels', uptime: '97.2%', profitMargin: '24.8%' } },
-      { id: 'npa', name: 'NPA', performance: 91, compliance: 95, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '91.4%', revenue: '₵485M', cases: '1,847 resolved', costRecovery: '87.3%' } },
-      { id: 'goil', name: 'GOIL & OMCs', performance: 88, compliance: 92, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '87.8%', revenue: '₵3.4B', stations: '425 outlets', marketShare: '32.6%' } },
-      { id: 'ecg', name: 'ECG', performance: 82, compliance: 88, lastUpdated: SERVER_TIMESTAMP, metrics: { losses: '21.4%', collection: '86.2%', revenue: '₵7.8B', customers: '4.1M', debtRecovery: '72.4%' } },
-      { id: 'gridco', name: 'GRIDCo', performance: 96, compliance: 98, lastUpdated: SERVER_TIMESTAMP, metrics: { reliability: '99.1%', frequency: '50.02 Hz', revenue: '₵4.2B', coverage: '99.3%', uptime: '99.7%' } },
-      { id: 'vra', name: 'VRA & IPPs', performance: 91, compliance: 94, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '89.7%', generation: '3,247 MW', revenue: '₵5.8B', capacity: '91.2%', availability: '94.8%' } },
-      { id: 'bost', name: 'BOST', performance: 86, compliance: 90, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '84.2%', storage: '680M liters', revenue: '₵2.4B', coverage: '96.8%', turnover: '₵8.2B' } },
-      { id: 'purc', name: 'PURC', performance: 90, compliance: 96, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '88.9%', decisions: '67 rulings', revenue: '₵185M', compliance: '96.8%', casesResolved: '94.2%' } },
-      { id: 'epa', name: 'EPA', performance: 92, compliance: 94, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '89.7%', inspections: '3,847', revenue: '₵125M', compliance: '92.4%', enforcement: '87.6%' } }
+      { id: 'gnpc', name: 'GNPC', performance: 94, compliance: 97, lastUpdated: SERVER_TIMESTAMP, metrics: { production: '185.2 kboepd', revenue: '₵15.8B', reserves: '2.1B barrels', uptime: '97.2%', profitMargin: '32.4%', marketCap: '₵42.5B' } },
+      { id: 'npa', name: 'NPA', performance: 91, compliance: 95, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '91.4%', revenue: '₵785M', cases: '2,341 resolved', costRecovery: '89.7%', tariffReviews: '14 completed' } },
+      { id: 'goil', name: 'GOIL & OMCs', performance: 88, compliance: 92, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '87.8%', revenue: '₵8.7B', stations: '518 outlets', marketShare: '38.2%', profitMargin: '6.8%' } },
+      { id: 'ecg', name: 'ECG', performance: 82, compliance: 88, lastUpdated: SERVER_TIMESTAMP, metrics: { losses: '23.8%', collection: '84.7%', revenue: '₵12.4B', customers: '5.2M', debtRecovery: '68.9%', arrearages: '₵4.2B' } },
+      { id: 'gridco', name: 'GRIDCo', performance: 96, compliance: 98, lastUpdated: SERVER_TIMESTAMP, metrics: { reliability: '99.1%', frequency: '50.02 Hz', revenue: '₵6.8B', coverage: '99.3%', uptime: '99.7%', transmissionLoss: '4.2%' } },
+      { id: 'vra', name: 'VRA & IPPs', performance: 91, compliance: 94, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '89.7%', generation: '4,847 MW', revenue: '₵9.2B', capacity: '91.2%', availability: '94.8%', thermalShare: '68.4%' } },
+      { id: 'bost', name: 'BOST', performance: 86, compliance: 90, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '84.2%', storage: '845M liters', revenue: '₵4.8B', coverage: '96.8%', turnover: '₵12.7B', strategicReserves: '45 days' } },
+      { id: 'purc', name: 'PURC', performance: 90, compliance: 96, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '88.9%', decisions: '89 rulings', revenue: '₵285M', compliance: '96.8%', casesResolved: '94.2%', tariffOrders: '23 issued' } },
+      { id: 'epa', name: 'EPA', performance: 92, compliance: 94, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '89.7%', inspections: '5,421', revenue: '₵185M', compliance: '92.4%', enforcement: '87.6%', permitsIssued: '1,247' } }
     ],
     procurements: [
-      { id: 'proc-1', title: 'Emergency Power Transformers', agency: 'ECG', category: 'Equipment', value: 28500000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-15T10:00:00Z' },
-      { id: 'proc-2', title: 'Smart Metering System', agency: 'ECG', category: 'Technology', value: 68000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-10T14:30:00Z' },
-      { id: 'proc-3', title: 'Gas Turbine Maintenance', agency: 'VRA', category: 'Services', value: 42000000, status: 'Completed', riskLevel: 'Low', createdAt: '2024-01-05T09:15:00Z' },
-      { id: 'proc-4', title: 'Transmission Line Materials', agency: 'GRIDCo', category: 'Materials', value: 125000000, status: 'Pending', riskLevel: 'High', createdAt: '2024-01-12T16:45:00Z' },
-      { id: 'proc-5', title: 'Fuel Supply Contract', agency: 'BOST', category: 'Supply', value: 185000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-08T11:20:00Z' },
-      { id: 'proc-6', title: 'Environmental Consulting', agency: 'EPA', category: 'Services', value: 16800000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-14T13:10:00Z' },
-      { id: 'proc-7', title: 'Substation Equipment', agency: 'GRIDCo', category: 'Equipment', value: 82000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-16T09:30:00Z' },
-      { id: 'proc-8', title: 'Solar Panel Installation', agency: 'VRA', category: 'Renewable', value: 145000000, status: 'Tender', riskLevel: 'Low', createdAt: '2024-01-17T14:20:00Z' },
-      { id: 'proc-9', title: 'Pipeline Maintenance', agency: 'GNPC', category: 'Services', value: 98000000, status: 'In Progress', riskLevel: 'High', createdAt: '2024-01-18T11:45:00Z' },
-      { id: 'proc-10', title: 'IT Infrastructure Upgrade', agency: 'PURC', category: 'Technology', value: 38500000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-19T13:30:00Z' },
-      { id: 'proc-11', title: 'Fuel Transportation Services', agency: 'GOIL', category: 'Logistics', value: 68000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-20T09:15:00Z' },
-      { id: 'proc-12', title: 'Power Plant Spare Parts', agency: 'VRA', category: 'Equipment', value: 52000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-21T14:45:00Z' },
-      { id: 'proc-13', title: 'Security System Installation', agency: 'ECG', category: 'Security', value: 28500000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-22T10:30:00Z' },
-      { id: 'proc-14', title: 'Environmental Impact Assessment', agency: 'EPA', category: 'Consulting', value: 42000000, status: 'In Progress', riskLevel: 'Low', createdAt: '2024-01-23T11:20:00Z' },
-      { id: 'proc-15', title: 'Transmission Tower Construction', agency: 'GRIDCo', category: 'Infrastructure', value: 168000000, status: 'Tender', riskLevel: 'High', createdAt: '2024-01-24T13:45:00Z' }
+      { id: 'proc-1', title: 'Emergency Power Transformers', agency: 'ECG', category: 'Equipment', value: 48500000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-15T10:00:00Z' },
+      { id: 'proc-2', title: 'Smart Metering System', agency: 'ECG', category: 'Technology', value: 128000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-10T14:30:00Z' },
+      { id: 'proc-3', title: 'Gas Turbine Maintenance', agency: 'VRA', category: 'Services', value: 82000000, status: 'Completed', riskLevel: 'Low', createdAt: '2024-01-05T09:15:00Z' },
+      { id: 'proc-4', title: 'Transmission Line Materials', agency: 'GRIDCo', category: 'Materials', value: 245000000, status: 'Pending', riskLevel: 'High', createdAt: '2024-01-12T16:45:00Z' },
+      { id: 'proc-5', title: 'Fuel Supply Contract', agency: 'BOST', category: 'Supply', value: 385000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-08T11:20:00Z' },
+      { id: 'proc-6', title: 'Environmental Consulting', agency: 'EPA', category: 'Services', value: 32000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-14T13:10:00Z' },
+      { id: 'proc-7', title: 'Substation Equipment', agency: 'GRIDCo', category: 'Equipment', value: 142000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-16T09:30:00Z' },
+      { id: 'proc-8', title: 'Solar Panel Installation', agency: 'VRA', category: 'Renewable', value: 285000000, status: 'Tender', riskLevel: 'Low', createdAt: '2024-01-17T14:20:00Z' },
+      { id: 'proc-9', title: 'Pipeline Maintenance', agency: 'GNPC', category: 'Services', value: 168000000, status: 'In Progress', riskLevel: 'High', createdAt: '2024-01-18T11:45:00Z' },
+      { id: 'proc-10', title: 'IT Infrastructure Upgrade', agency: 'PURC', category: 'Technology', value: 68000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-19T13:30:00Z' },
+      { id: 'proc-11', title: 'Fuel Transportation Services', agency: 'GOIL', category: 'Logistics', value: 128000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-20T09:15:00Z' },
+      { id: 'proc-12', title: 'Power Plant Spare Parts', agency: 'VRA', category: 'Equipment', value: 98000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-21T14:45:00Z' },
+      { id: 'proc-13', title: 'Security System Installation', agency: 'ECG', category: 'Security', value: 48000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-22T10:30:00Z' },
+      { id: 'proc-14', title: 'Environmental Impact Assessment', agency: 'EPA', category: 'Consulting', value: 68000000, status: 'In Progress', riskLevel: 'Low', createdAt: '2024-01-23T11:20:00Z' },
+      { id: 'proc-15', title: 'Transmission Tower Construction', agency: 'GRIDCo', category: 'Infrastructure', value: 285000000, status: 'Tender', riskLevel: 'High', createdAt: '2024-01-24T13:45:00Z' },
+      { id: 'proc-16', title: 'Bulk Supply Point Equipment', agency: 'ECG', category: 'Infrastructure', value: 168000000, status: 'Approved', riskLevel: 'Medium', createdAt: '2024-01-25T09:20:00Z' },
+      { id: 'proc-17', title: 'Oil & Gas Exploration Tools', agency: 'GNPC', category: 'Equipment', value: 420000000, status: 'In Progress', riskLevel: 'High', createdAt: '2024-01-26T14:15:00Z' },
+      { id: 'proc-18', title: 'Retail Station Modernization', agency: 'GOIL', category: 'Infrastructure', value: 98000000, status: 'Evaluated', riskLevel: 'Low', createdAt: '2024-01-27T11:30:00Z' },
+      { id: 'proc-19', title: 'Tariff Review Software', agency: 'NPA', category: 'Technology', value: 38000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-28T13:45:00Z' },
+      { id: 'proc-20', title: 'Waste Management Systems', agency: 'EPA', category: 'Environmental', value: 52000000, status: 'Tender', riskLevel: 'Medium', createdAt: '2024-01-29T10:10:00Z' }
     ],
     contracts: [
       { id: 'cont-1', title: 'Kumasi Power Plant Construction', agency: 'VRA', contractor: 'Siemens Energy', value: 685000000, status: 'Active', startDate: '2023-06-01', endDate: '2025-12-31' },
@@ -166,15 +171,15 @@ export function getServerEnergyData(): ServerEnergyData {
       { id: 'cont-10', title: 'Environmental Monitoring', agency: 'EPA', contractor: 'EcoConsult Ltd', value: 85000000, status: 'Active', startDate: '2023-08-01', endDate: '2025-07-31' }
     ],
     financialReports: [
-      { id: 'fin-1', agency: 'ECG', period: 'Quarterly', totalRevenue: 7800000000, totalExpenses: 6200000000, netIncome: 1600000000, totalAssets: 18500000000, totalLiabilities: 4800000000, year: 2024 },
-      { id: 'fin-2', agency: 'VRA', period: 'Quarterly', totalRevenue: 5800000000, totalExpenses: 4200000000, netIncome: 1600000000, totalAssets: 12800000000, totalLiabilities: 3200000000, year: 2024 },
-      { id: 'fin-3', agency: 'GRIDCo', period: 'Quarterly', totalRevenue: 4200000000, totalExpenses: 3100000000, netIncome: 1100000000, totalAssets: 9800000000, totalLiabilities: 2100000000, year: 2024 },
-      { id: 'fin-4', agency: 'GNPC', period: 'Quarterly', totalRevenue: 8200000000, totalExpenses: 5800000000, netIncome: 2400000000, totalAssets: 24500000000, totalLiabilities: 5200000000, year: 2024 },
-      { id: 'fin-5', agency: 'BOST', period: 'Quarterly', totalRevenue: 2400000000, totalExpenses: 1850000000, netIncome: 550000000, totalAssets: 5800000000, totalLiabilities: 1450000000, year: 2024 },
-      { id: 'fin-6', agency: 'GOIL', period: 'Quarterly', totalRevenue: 3400000000, totalExpenses: 2850000000, netIncome: 550000000, totalAssets: 8200000000, totalLiabilities: 2100000000, year: 2024 },
-      { id: 'fin-7', agency: 'NPA', period: 'Quarterly', totalRevenue: 485000000, totalExpenses: 385000000, netIncome: 100000000, totalAssets: 1200000000, totalLiabilities: 280000000, year: 2024 },
-      { id: 'fin-8', agency: 'PURC', period: 'Quarterly', totalRevenue: 185000000, totalExpenses: 145000000, netIncome: 40000000, totalAssets: 480000000, totalLiabilities: 85000000, year: 2024 },
-      { id: 'fin-9', agency: 'EPA', period: 'Quarterly', totalRevenue: 125000000, totalExpenses: 98000000, netIncome: 27000000, totalAssets: 320000000, totalLiabilities: 65000000, year: 2024 }
+      { id: 'fin-1', agency: 'ECG', period: 'Quarterly', totalRevenue: 12400000000, totalExpenses: 9800000000, netIncome: 2600000000, totalAssets: 28500000000, totalLiabilities: 7200000000, year: 2024 },
+      { id: 'fin-2', agency: 'VRA', period: 'Quarterly', totalRevenue: 9200000000, totalExpenses: 6800000000, netIncome: 2400000000, totalAssets: 19800000000, totalLiabilities: 4800000000, year: 2024 },
+      { id: 'fin-3', agency: 'GRIDCo', period: 'Quarterly', totalRevenue: 6800000000, totalExpenses: 5200000000, netIncome: 1600000000, totalAssets: 14200000000, totalLiabilities: 3100000000, year: 2024 },
+      { id: 'fin-4', agency: 'GNPC', period: 'Quarterly', totalRevenue: 15800000000, totalExpenses: 9200000000, netIncome: 6600000000, totalAssets: 38500000000, totalLiabilities: 8200000000, year: 2024 },
+      { id: 'fin-5', agency: 'BOST', period: 'Quarterly', totalRevenue: 4800000000, totalExpenses: 3850000000, netIncome: 950000000, totalAssets: 8200000000, totalLiabilities: 2100000000, year: 2024 },
+      { id: 'fin-6', agency: 'GOIL', period: 'Quarterly', totalRevenue: 8700000000, totalExpenses: 7800000000, netIncome: 900000000, totalAssets: 12800000000, totalLiabilities: 3400000000, year: 2024 },
+      { id: 'fin-7', agency: 'NPA', period: 'Quarterly', totalRevenue: 785000000, totalExpenses: 585000000, netIncome: 200000000, totalAssets: 1850000000, totalLiabilities: 420000000, year: 2024 },
+      { id: 'fin-8', agency: 'PURC', period: 'Quarterly', totalRevenue: 285000000, totalExpenses: 210000000, netIncome: 75000000, totalAssets: 680000000, totalLiabilities: 125000000, year: 2024 },
+      { id: 'fin-9', agency: 'EPA', period: 'Quarterly', totalRevenue: 185000000, totalExpenses: 142000000, netIncome: 43000000, totalAssets: 485000000, totalLiabilities: 98000000, year: 2024 }
     ],
     assets: [
       { id: 'asset-1', name: 'Akosombo Hydro Plant', agency: 'VRA', category: 'Infrastructure', value: 1850000000, status: 'Active', condition: 'Good' },

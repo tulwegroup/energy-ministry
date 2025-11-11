@@ -35,6 +35,7 @@ import {
   EnergyMixChart 
 } from '@/components/charts'
 import { getServerEnergyData } from '@/lib/server-data'
+import Link from 'next/link'
 
 // Server data interface
 interface ServerData {
@@ -90,8 +91,6 @@ export default function Home() {
     // Get server data
     const serverData = getServerEnergyData()
     setData(serverData)
-    
-    // Mark as client-side
     setIsClient(true)
   }, [])
 
@@ -158,16 +157,17 @@ export default function Home() {
               {data.agencies.map((agency) => {
                 const IconComponent = agencyIcons[agency.id as keyof typeof agencyIcons] || Building
                 return (
-                  <button
-                    key={agency.id}
-                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-accent text-left"
-                  >
-                    <IconComponent className="h-5 w-5" />
-                    <div>
-                      <div className="font-medium">{agency.name}</div>
-                      <div className="text-xs text-muted-foreground">Energy Sector Agency</div>
-                    </div>
-                  </button>
+                  <Link key={agency.id} href={`/agencies/${agency.id}`}>
+                    <button
+                      className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-accent text-left"
+                    >
+                      <IconComponent className="h-5 w-5" />
+                      <div>
+                        <div className="font-medium">{agency.name}</div>
+                        <div className="text-xs text-muted-foreground">Energy Sector Agency</div>
+                      </div>
+                    </button>
+                  </Link>
                 )
               })}
             </nav>
@@ -282,37 +282,39 @@ export default function Home() {
                 {data.agencies.map((agency) => {
                   const IconComponent = agencyIcons[agency.id as keyof typeof agencyIcons] || Building
                   return (
-                    <Card key={agency.id} className="cursor-pointer hover:shadow-lg transition-shadow">
-                      <CardHeader>
-                        <CardTitle className="flex items-center space-x-2">
-                          <IconComponent className="h-5 w-5" />
-                          <span>{agency.name}</span>
-                        </CardTitle>
-                        <CardDescription>Energy Sector Agency</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-sm">Performance</span>
-                            <Badge variant="outline">{agency.performance}%</Badge>
+                    <Link key={agency.id} href={`/agencies/${agency.id}`}>
+                      <Card className="cursor-pointer hover:shadow-lg transition-shadow">
+                        <CardHeader>
+                          <CardTitle className="flex items-center space-x-2">
+                            <IconComponent className="h-5 w-5" />
+                            <span>{agency.name}</span>
+                          </CardTitle>
+                          <CardDescription>Energy Sector Agency</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <span className="text-sm">Performance</span>
+                              <Badge variant="outline">{agency.performance}%</Badge>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm">Compliance</span>
+                              <Badge variant="outline">{agency.compliance}%</Badge>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm">Last Updated</span>
+                              <span className="text-sm text-muted-foreground">
+                                Server Data
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm">Compliance</span>
-                            <Badge variant="outline">{agency.compliance}%</Badge>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm">Last Updated</span>
-                            <span className="text-sm text-muted-foreground">
-                              Server Data
-                            </span>
-                          </div>
-                        </div>
-                        <Separator className="my-3" />
-                        <Button variant="outline" className="w-full">
-                          View Full Dashboard
-                        </Button>
-                      </CardContent>
-                    </Card>
+                          <Separator className="my-3" />
+                          <Button variant="outline" className="w-full">
+                            View Full Dashboard
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   )
                 })}
               </div>

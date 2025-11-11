@@ -97,56 +97,58 @@ export default function ECGDashboard() {
     // Mock ECG data - in real implementation, this would come from API
     setData({
       overview: {
-        totalCustomers: '4.2M',
-        electricitySupply: '2,847 MW',
-        collectionRate: '78.2%',
-        technicalLosses: '24.5%',
-        revenue: '₵3.8B',
-        reliability: '89.7%'
+        totalCustomers: '4.3M',
+        electricitySupply: '2,450 MW',
+        collectionRate: '67.8%',
+        technicalLosses: '32.3%',
+        revenue: '₵2.1B',
+        reliability: '84.2%'
       },
       operations: {
         supply: [
-          { region: 'Greater Accra', demand: '850 MW', supply: '820 MW', deficit: '30 MW', reliability: 96.5 },
-          { region: 'Ashanti', demand: '620 MW', supply: '580 MW', deficit: '40 MW', reliability: 93.5 },
-          { region: 'Western', demand: '380 MW', supply: '340 MW', deficit: '40 MW', reliability: 89.5 },
-          { region: 'Eastern', demand: '290 MW', supply: '260 MW', deficit: '30 MW', reliability: 89.7 },
-          { region: 'Northern', demand: '220 MW', supply: '195 MW', deficit: '25 MW', reliability: 88.6 }
+          { region: 'Greater Accra', demand: '920 MW', supply: '780 MW', deficit: '140 MW', reliability: 84.7 },
+          { region: 'Ashanti', demand: '680 MW', supply: '520 MW', deficit: '160 MW', reliability: 76.5 },
+          { region: 'Western', demand: '410 MW', supply: '290 MW', deficit: '120 MW', reliability: 70.7 },
+          { region: 'Eastern', demand: '320 MW', supply: '240 MW', deficit: '80 MW', reliability: 75.0 },
+          { region: 'Northern', demand: '220 MW', supply: '165 MW', deficit: '55 MW', reliability: 75.0 }
         ],
         losses: [
-          { type: 'Commercial Losses', commercial: 18.5, technical: 6.0, total: 24.5 },
-          { type: 'Technical Losses', commercial: 2.5, technical: 22.0, total: 24.5 },
-          { type: 'Total System Losses', commercial: 21.0, technical: 28.0, total: 49.0 }
+          { type: 'Commercial Losses', commercial: 24.8, technical: 7.5, total: 32.3 },
+          { type: 'Technical Losses', commercial: 0, technical: 12.5, total: 12.5 },
+          { type: 'Total System Losses', commercial: 24.8, technical: 20.0, total: 44.8 }
         ],
         revenue: [
-          { category: 'Residential', billed: '₵1.2B', collected: '₵936M', collection: 78.0 },
-          { category: 'Commercial', billed: '₵1.8B', collected: '₵1.4B', collection: 77.8 },
-          { category: 'Industrial', billed: '₵800M', collected: '₵624M', collection: 78.0 }
+          { category: 'Residential', billed: '₵980M', collected: '₵620M', collection: 63.3 },
+          { category: 'Commercial', billed: '₵1.4B', collected: '₵980M', collection: 70.0 },
+          { category: 'Industrial', billed: '₵650M', collected: '₵500M', collection: 76.9 }
         ]
       },
       customers: {
         categories: [
-          { type: 'Residential', count: '3.8M', consumption: '4,250 GWh', revenue: '₵1.2B' },
-          { type: 'Commercial', count: '285K', consumption: '2,850 GWh', revenue: '₵1.8B' },
-          { type: 'Industrial', count: '45K', consumption: '1,200 GWh', revenue: '₵800M' },
+          { type: 'Residential', count: '3.9M', consumption: '3,850 GWh', revenue: '₵980M' },
+          { type: 'Commercial', count: '295K', consumption: '2,450 GWh', revenue: '₵1.4B' },
+          { type: 'Industrial', count: '48K', consumption: '980 GWh', revenue: '₵650M' },
           { type: 'Street Lighting', count: '125K', consumption: '180 GWh', revenue: '₵50M' }
         ],
         satisfaction: [
-          { metric: 'Power Quality', score: 82, target: 85 },
-          { metric: 'Service Reliability', score: 78, target: 80 },
-          { metric: 'Customer Service', score: 85, target: 85 },
-          { metric: 'Billing Accuracy', score: 88, target: 90 }
+          { metric: 'Power Quality', score: 72, target: 85 },
+          { metric: 'Service Reliability', score: 68, target: 80 },
+          { metric: 'Customer Service', score: 74, target: 85 },
+          { metric: 'Billing Accuracy', score: 78, target: 90 }
         ],
         complaints: [
-          { type: 'Power Outages', resolved: 1245, pending: 89, resolution: 93.3 },
-          { type: 'Billing Issues', resolved: 892, pending: 156, resolution: 85.1 },
-          { type: 'New Connections', resolved: 445, pending: 78, resolution: 85.1 },
-          { type: 'Meter Issues', resolved: 678, pending: 45, resolution: 93.8 }
+          { type: 'Power Outages', resolved: 1845, pending: 489, resolution: 79.0 },
+          { type: 'Billing Issues', resolved: 1292, pending: 456, resolution: 73.9 },
+          { type: 'New Connections', resolved: 645, pending: 278, resolution: 69.9 },
+          { type: 'Meter Issues', resolved: 878, pending: 245, resolution: 78.2 }
         ]
       },
       alerts: [
-        { id: '1', type: 'critical', message: 'Major transformer failure at Kumasi substation affecting 50,000 customers', timestamp: '2024-01-15T14:30:00Z' },
-        { id: '2', type: 'warning', message: 'High commercial losses detected in Ashanti Region - 26.8%', timestamp: '2024-01-15T11:20:00Z' },
-        { id: '3', type: 'info', message: 'Scheduled maintenance for Tema-Accra transmission line this weekend', timestamp: '2024-01-14T09:15:00Z' }
+        { id: '1', type: 'critical', message: 'ECG inherited debt of ₵2.1B from previous administration threatening operations', timestamp: '2024-01-15T14:30:00Z' },
+        { id: '2', type: 'critical', message: 'System losses reach 32.3% - highest among West African utilities', timestamp: '2024-01-15T11:20:00Z' },
+        { id: '3', type: 'warning', message: 'Collection rate drops to 67.8% due to economic hardships and tariff increases', timestamp: '2024-01-14T09:15:00Z' },
+        { id: '4', type: 'critical', message: 'Major transformer failure at Kumasi substation affecting 75,000 customers', timestamp: '2024-01-13T16:45:00Z' },
+        { id: '5', type: 'warning', message: 'Smart metering project only 25% complete due to funding constraints', timestamp: '2024-01-12T10:30:00Z' }
       ]
     })
   }, [])

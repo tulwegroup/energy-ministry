@@ -53,12 +53,12 @@ export function generateEnergyMetrics(): EnergyMetric[] {
   }
   
   const baseMetrics = [
-    { title: 'Total Power Generation', baseValue: 3847, unit: 'MW', demandBase: 3650 },
-    { title: 'Fuel Stock Cover', baseValue: 18.5, unit: ' days' },
-    { title: 'Gas Flow & Supply', baseValue: 145, unit: ' MMscfd' },
-    { title: 'Transmission Reliability', baseValue: 98.2, unit: '%' },
-    { title: 'Distribution Efficiency', baseValue: 76.8, unit: '%' },
-    { title: 'Energy Security Index', baseValue: 82.4, unit: '' }
+    { title: 'Total Power Generation', baseValue: 3200, unit: 'MW', demandBase: 3100 },
+    { title: 'Fuel Stock Cover', baseValue: 12.3, unit: ' days' },
+    { title: 'Gas Flow & Supply', baseValue: 120, unit: ' MMscfd' },
+    { title: 'Transmission Reliability', baseValue: 95.8, unit: '%' },
+    { title: 'Distribution Efficiency', baseValue: 68.5, unit: '%' },
+    { title: 'Energy Security Index', baseValue: 74.2, unit: '' }
   ]
 
   return baseMetrics.map((metric, index) => {
@@ -70,12 +70,12 @@ export function generateEnergyMetrics(): EnergyMetric[] {
 
     // Determine status based on value ranges
     let status: 'healthy' | 'warning' | 'critical' = 'healthy'
-    if (metric.title === 'Distribution Efficiency' && value < 75) status = 'critical'
-    else if (metric.title === 'Distribution Efficiency' && value < 80) status = 'warning'
-    else if (metric.title === 'Fuel Stock Cover' && value < 15) status = 'critical'
-    else if (metric.title === 'Fuel Stock Cover' && value < 20) status = 'warning'
-    else if (metric.title === 'Energy Security Index' && value < 75) status = 'critical'
-    else if (metric.title === 'Energy Security Index' && value < 85) status = 'warning'
+    if (metric.title === 'Distribution Efficiency' && value < 65) status = 'critical'
+    else if (metric.title === 'Distribution Efficiency' && value < 72) status = 'warning'
+    else if (metric.title === 'Fuel Stock Cover' && value < 10) status = 'critical'
+    else if (metric.title === 'Fuel Stock Cover' && value < 15) status = 'warning'
+    else if (metric.title === 'Energy Security Index' && value < 70) status = 'critical'
+    else if (metric.title === 'Energy Security Index' && value < 78) status = 'warning'
 
     return {
       title: metric.title,
@@ -101,10 +101,10 @@ export function generateFinancialData(): FinancialData {
     }
   }
   
-  const baseRevenue = 2800 // ₵M
-  const baseSubsidies = 420 // ₵M
-  const baseReceivables = 1200 // ₵M
-  const baseLiabilities = 890 // ₵M
+  const baseRevenue = 2100 // ₵M (reduced from 2800M)
+  const baseSubsidies = 680 // ₵M (increased from 420M)
+  const baseReceivables = 1850 // ₵M (increased from 1200M)
+  const baseLiabilities = 1420 // ₵M (increased from 890M to reflect inherited debts)
 
   const variation = (Math.random() - 0.5) * 0.05 // ±2.5% variation
 
@@ -125,12 +125,14 @@ export function generateAlerts(): Alert[] {
   }
   
   const alertTemplates = [
-    { type: 'critical' as const, message: 'Critical gas shortfall risk expected in Western Region', source: 'GNPC' },
-    { type: 'warning' as const, message: 'ECG losses rising in Ashanti Region - 24.5% AT&C losses', source: 'ECG' },
-    { type: 'info' as const, message: 'GRIDCo maintenance scheduled for Tema-Accra corridor', source: 'GRIDCo' },
-    { type: 'warning' as const, message: 'Fuel stock levels below 15 days in Northern depots', source: 'BOST' },
-    { type: 'critical' as const, message: 'System frequency instability detected in Eastern corridor', source: 'GRIDCo' },
-    { type: 'info' as const, message: 'Renewable energy generation peaks at 28% of total mix', source: 'VRA' }
+    { type: 'critical' as const, message: 'ECG accumulated debts exceed ₵2.1B - urgent tariff review needed', source: 'ECG' },
+    { type: 'critical' as const, message: 'System losses at ECG reach 32.8% - highest in West Africa', source: 'ECG' },
+    { type: 'warning' as const, message: 'Gas supply shortfall from Nigeria affecting 450MW generation', source: 'GNPC' },
+    { type: 'warning' as const, message: 'Currency depreciation increasing fuel costs by 18% QoQ', source: 'BOST' },
+    { type: 'critical' as const, message: 'Major transmission line collapse affecting Northern Ghana', source: 'GRIDCo' },
+    { type: 'info' as const, message: 'Renewable energy contribution stagnant at 3% of total mix', source: 'VRA' },
+    { type: 'warning' as const, message: 'Collection rate at ECG drops to 68% due to economic hardships', source: 'ECG' },
+    { type: 'critical' as const, message: 'Inherited debts from previous administration total ₵5.2B across sector', source: 'Ministry' }
   ]
 
   // Return 2-4 random alerts
@@ -155,12 +157,14 @@ export function generateProjects(): Project[] {
   }
   
   const projectTemplates = [
-    { name: 'Pokuase Bulk Supply Point', baseCost: 45, baseProgress: 85 },
-    { name: 'Kumasi 330kV Substation', baseCost: 38, baseProgress: 72 },
-    { name: 'Takoradi Thermal Expansion', baseCost: 67, baseProgress: 91 },
-    { name: 'Tema-Accra Transmission Upgrade', baseCost: 52, baseProgress: 60 },
-    { name: 'Sunyani Power Plant', baseCost: 29, baseProgress: 70 },
-    { name: 'Tamale Distribution Network', baseCost: 34, baseProgress: 45 }
+    { name: 'Pokuase Bulk Supply Point (AfDB Funded)', baseCost: 65, baseProgress: 78 },
+    { name: 'Kumasi 330kV Substation (World Bank)', baseCost: 52, baseProgress: 65 },
+    { name: 'Takoradi Thermal Plant Phase 2', baseCost: 380, baseProgress: 45 },
+    { name: 'Tema-Accra Transmission Line Upgrade', baseCost: 95, baseProgress: 52 },
+    { name: 'Bui Dam Hydro Expansion', baseCost: 420, baseProgress: 38 },
+    { name: 'ECG Smart Metering Project', baseCost: 280, baseProgress: 25 },
+    { name: 'CENIT Power Plant (150MW)', baseCost: 180, baseProgress: 88 },
+    { name: 'Karpowership Ghana (450MW)', baseCost: 220, baseProgress: 92 }
   ]
 
   return projectTemplates.map((project, index) => {
@@ -195,15 +199,15 @@ export function generateAgencyData(): AgencyData[] {
   }
   
   const agencies = [
-    { id: 'gnpc', name: 'GNPC', basePerformance: 88, baseCompliance: 92 },
-    { id: 'npa', name: 'NPA', basePerformance: 85, baseCompliance: 89 },
-    { id: 'goil', name: 'GOIL & OMCs', basePerformance: 82, baseCompliance: 87 },
-    { id: 'ecg', name: 'ECG', basePerformance: 76, baseCompliance: 83 },
-    { id: 'gridco', name: 'GRIDCo', basePerformance: 91, baseCompliance: 94 },
-    { id: 'vra', name: 'VRA & IPPs', basePerformance: 87, baseCompliance: 90 },
-    { id: 'bost', name: 'BOST', basePerformance: 79, baseCompliance: 85 },
-    { id: 'purc', name: 'PURC', basePerformance: 84, baseCompliance: 91 },
-    { id: 'epa', name: 'EPA', basePerformance: 86, baseCompliance: 88 }
+    { id: 'gnpc', name: 'GNPC', basePerformance: 82, baseCompliance: 88 },
+    { id: 'npa', name: 'NPA', basePerformance: 78, baseCompliance: 85 },
+    { id: 'goil', name: 'GOIL & OMCs', basePerformance: 75, baseCompliance: 82 },
+    { id: 'ecg', name: 'ECG', basePerformance: 58, baseCompliance: 65 },
+    { id: 'gridco', name: 'GRIDCo', basePerformance: 86, baseCompliance: 90 },
+    { id: 'vra', name: 'VRA & IPPs', basePerformance: 79, baseCompliance: 84 },
+    { id: 'bost', name: 'BOST', basePerformance: 71, baseCompliance: 78 },
+    { id: 'purc', name: 'PURC', basePerformance: 81, baseCompliance: 88 },
+    { id: 'epa', name: 'EPA', basePerformance: 83, baseCompliance: 86 }
   ]
 
   return agencies.map((agency) => {
@@ -217,19 +221,32 @@ export function generateAgencyData(): AgencyData[] {
     const metrics: Record<string, number | string> = {}
     switch (agency.id) {
       case 'gnpc':
-        metrics.production = `${(Math.random() * 50 + 100).toFixed(1)} kboepd`
-        metrics.uptime = `${(Math.random() * 5 + 92).toFixed(1)}%`
+        metrics.production = `${(Math.random() * 30 + 70).toFixed(1)} kboepd`
+        metrics.uptime = `${(Math.random() * 8 + 85).toFixed(1)}%`
+        metrics.debt = `₵${(Math.random() * 200 + 600).toFixed(0)}M`
         break
       case 'ecg':
-        metrics.losses = `${(Math.random() * 10 + 20).toFixed(1)}%`
-        metrics.collection = `${(Math.random() * 15 + 75).toFixed(1)}%`
+        metrics.losses = `${(Math.random() * 8 + 28).toFixed(1)}%` // 28-36% range
+        metrics.collection = `${(Math.random() * 10 + 62).toFixed(1)}%` // 62-72% range
+        metrics.debt = `₵${(Math.random() * 800 + 1500).toFixed(0)}M` // ₵1.5-2.3B
+        metrics.customers = `${(Math.random() * 0.5 + 4.3).toFixed(1)}M`
         break
       case 'gridco':
-        metrics.reliability = `${(Math.random() * 3 + 96).toFixed(1)}%`
-        metrics.frequency = `${(50 + (Math.random() - 0.5) * 0.2).toFixed(2)} Hz`
+        metrics.reliability = `${(Math.random() * 5 + 92).toFixed(1)}%`
+        metrics.frequency = `${(50 + (Math.random() - 0.5) * 0.4).toFixed(2)} Hz`
+        metrics.losses = `${(Math.random() * 3 + 4.5).toFixed(1)}%`
+        break
+      case 'vra':
+        metrics.generation = `${(Math.random() * 800 + 1400).toFixed(0)} MW`
+        metrics.thermal = `${(Math.random() * 400 + 800).toFixed(0)} MW`
+        metrics.hydro = `${(Math.random() * 200 + 400).toFixed(0)} MW`
+        break
+      case 'bost':
+        metrics.fuelCover = `${(Math.random() * 8 + 8).toFixed(1)} days`
+        metrics.depotCapacity = `${(Math.random() * 200 + 400).toFixed(0)} million litres`
         break
       default:
-        metrics.efficiency = `${(Math.random() * 20 + 70).toFixed(1)}%`
+        metrics.efficiency = `${(Math.random() * 20 + 65).toFixed(1)}%`
     }
 
     return {

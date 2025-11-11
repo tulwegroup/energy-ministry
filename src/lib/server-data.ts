@@ -92,7 +92,7 @@ export interface ServerEnergyData {
 }
 
 // Fixed timestamp for server-side consistency
-export const SERVER_TIMESTAMP = '2024-01-01T00:00:00.000Z'
+export const SERVER_TIMESTAMP = '2025-11-11T00:00:00.000Z'
 
 // Generate consistent server-side data
 export function getServerEnergyData(): ServerEnergyData {
@@ -137,33 +137,33 @@ export function getServerEnergyData(): ServerEnergyData {
       { id: 'epa', name: 'EPA', performance: 92, compliance: 94, lastUpdated: SERVER_TIMESTAMP, metrics: { efficiency: '89.7%', inspections: '5,421', revenue: '₵185M', compliance: '92.4%', enforcement: '87.6%', permitsIssued: '1,247' } }
     ],
     procurements: [
-      { id: 'proc-1', title: 'Emergency Power Transformers', agency: 'ECG', category: 'Equipment', value: 48500000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-15T10:00:00Z' },
-      { id: 'proc-2', title: 'Smart Metering System', agency: 'ECG', category: 'Technology', value: 128000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-10T14:30:00Z' },
-      { id: 'proc-3', title: 'Gas Turbine Maintenance', agency: 'VRA', category: 'Services', value: 82000000, status: 'Completed', riskLevel: 'Low', createdAt: '2024-01-05T09:15:00Z' },
-      { id: 'proc-4', title: 'Transmission Line Materials', agency: 'GRIDCo', category: 'Materials', value: 245000000, status: 'Pending', riskLevel: 'High', createdAt: '2024-01-12T16:45:00Z' },
-      { id: 'proc-5', title: 'Fuel Supply Contract', agency: 'BOST', category: 'Supply', value: 385000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-08T11:20:00Z' },
-      { id: 'proc-6', title: 'Environmental Consulting', agency: 'EPA', category: 'Services', value: 32000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-14T13:10:00Z' },
-      { id: 'proc-7', title: 'Substation Equipment', agency: 'GRIDCo', category: 'Equipment', value: 142000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-16T09:30:00Z' },
-      { id: 'proc-8', title: 'Solar Panel Installation', agency: 'VRA', category: 'Renewable', value: 285000000, status: 'Tender', riskLevel: 'Low', createdAt: '2024-01-17T14:20:00Z' },
-      { id: 'proc-9', title: 'Pipeline Maintenance', agency: 'GNPC', category: 'Services', value: 168000000, status: 'In Progress', riskLevel: 'High', createdAt: '2024-01-18T11:45:00Z' },
-      { id: 'proc-10', title: 'IT Infrastructure Upgrade', agency: 'PURC', category: 'Technology', value: 68000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-19T13:30:00Z' },
-      { id: 'proc-11', title: 'Fuel Transportation Services', agency: 'GOIL', category: 'Logistics', value: 128000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2024-01-20T09:15:00Z' },
-      { id: 'proc-12', title: 'Power Plant Spare Parts', agency: 'VRA', category: 'Equipment', value: 98000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-21T14:45:00Z' },
-      { id: 'proc-13', title: 'Security System Installation', agency: 'ECG', category: 'Security', value: 48000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2024-01-22T10:30:00Z' },
-      { id: 'proc-14', title: 'Environmental Impact Assessment', agency: 'EPA', category: 'Consulting', value: 68000000, status: 'In Progress', riskLevel: 'Low', createdAt: '2024-01-23T11:20:00Z' },
-      { id: 'proc-15', title: 'Transmission Tower Construction', agency: 'GRIDCo', category: 'Infrastructure', value: 285000000, status: 'Tender', riskLevel: 'High', createdAt: '2024-01-24T13:45:00Z' },
-      { id: 'proc-16', title: 'Bulk Supply Point Equipment', agency: 'ECG', category: 'Infrastructure', value: 168000000, status: 'Approved', riskLevel: 'Medium', createdAt: '2024-01-25T09:20:00Z' },
-      { id: 'proc-17', title: 'Oil & Gas Exploration Tools', agency: 'GNPC', category: 'Equipment', value: 420000000, status: 'In Progress', riskLevel: 'High', createdAt: '2024-01-26T14:15:00Z' },
-      { id: 'proc-18', title: 'Retail Station Modernization', agency: 'GOIL', category: 'Infrastructure', value: 98000000, status: 'Evaluated', riskLevel: 'Low', createdAt: '2024-01-27T11:30:00Z' },
-      { id: 'proc-19', title: 'Tariff Review Software', agency: 'NPA', category: 'Technology', value: 38000000, status: 'Approved', riskLevel: 'Low', createdAt: '2024-01-28T13:45:00Z' },
-      { id: 'proc-20', title: 'Waste Management Systems', agency: 'EPA', category: 'Environmental', value: 52000000, status: 'Tender', riskLevel: 'Medium', createdAt: '2024-01-29T10:10:00Z' }
+      { id: 'proc-1', title: 'Emergency Power Transformers', agency: 'ECG', category: 'Equipment', value: 48500000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2025-11-01T10:00:00Z' },
+      { id: 'proc-2', title: 'Smart Metering System', agency: 'ECG', category: 'Technology', value: 128000000, status: 'Approved', riskLevel: 'Low', createdAt: '2025-11-02T14:30:00Z' },
+      { id: 'proc-3', title: 'Gas Turbine Maintenance', agency: 'VRA', category: 'Services', value: 82000000, status: 'Completed', riskLevel: 'Low', createdAt: '2025-10-28T09:15:00Z' },
+      { id: 'proc-4', title: 'Transmission Line Materials', agency: 'GRIDCo', category: 'Materials', value: 245000000, status: 'Pending', riskLevel: 'High', createdAt: '2025-11-03T16:45:00Z' },
+      { id: 'proc-5', title: 'Fuel Supply Contract', agency: 'BOST', category: 'Supply', value: 385000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2025-11-04T11:20:00Z' },
+      { id: 'proc-6', title: 'Environmental Consulting', agency: 'EPA', category: 'Services', value: 32000000, status: 'Approved', riskLevel: 'Low', createdAt: '2025-11-05T13:10:00Z' },
+      { id: 'proc-7', title: 'Substation Equipment', agency: 'GRIDCo', category: 'Equipment', value: 142000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2025-11-06T09:30:00Z' },
+      { id: 'proc-8', title: 'Solar Panel Installation', agency: 'VRA', category: 'Renewable', value: 285000000, status: 'Tender', riskLevel: 'Low', createdAt: '2025-11-07T14:20:00Z' },
+      { id: 'proc-9', title: 'Pipeline Maintenance', agency: 'GNPC', category: 'Services', value: 168000000, status: 'In Progress', riskLevel: 'High', createdAt: '2025-11-08T11:45:00Z' },
+      { id: 'proc-10', title: 'IT Infrastructure Upgrade', agency: 'PURC', category: 'Technology', value: 68000000, status: 'Approved', riskLevel: 'Low', createdAt: '2025-11-09T13:30:00Z' },
+      { id: 'proc-11', title: 'Fuel Transportation Services', agency: 'GOIL', category: 'Logistics', value: 128000000, status: 'In Progress', riskLevel: 'Medium', createdAt: '2025-11-10T09:15:00Z' },
+      { id: 'proc-12', title: 'Power Plant Spare Parts', agency: 'VRA', category: 'Equipment', value: 98000000, status: 'Approved', riskLevel: 'Low', createdAt: '2025-11-11T14:45:00Z' },
+      { id: 'proc-13', title: 'Security System Installation', agency: 'ECG', category: 'Security', value: 48000000, status: 'Evaluated', riskLevel: 'Medium', createdAt: '2025-11-12T10:30:00Z' },
+      { id: 'proc-14', title: 'Environmental Impact Assessment', agency: 'EPA', category: 'Consulting', value: 68000000, status: 'In Progress', riskLevel: 'Low', createdAt: '2025-11-13T11:20:00Z' },
+      { id: 'proc-15', title: 'Transmission Tower Construction', agency: 'GRIDCo', category: 'Infrastructure', value: 285000000, status: 'Tender', riskLevel: 'High', createdAt: '2025-11-14T13:45:00Z' },
+      { id: 'proc-16', title: 'Bulk Supply Point Equipment', agency: 'ECG', category: 'Infrastructure', value: 168000000, status: 'Approved', riskLevel: 'Medium', createdAt: '2025-11-15T09:20:00Z' },
+      { id: 'proc-17', title: 'Oil & Gas Exploration Tools', agency: 'GNPC', category: 'Equipment', value: 420000000, status: 'In Progress', riskLevel: 'High', createdAt: '2025-11-16T14:15:00Z' },
+      { id: 'proc-18', title: 'Retail Station Modernization', agency: 'GOIL', category: 'Infrastructure', value: 98000000, status: 'Evaluated', riskLevel: 'Low', createdAt: '2025-11-17T11:30:00Z' },
+      { id: 'proc-19', title: 'Tariff Review Software', agency: 'NPA', category: 'Technology', value: 38000000, status: 'Approved', riskLevel: 'Low', createdAt: '2025-11-18T13:45:00Z' },
+      { id: 'proc-20', title: 'Waste Management Systems', agency: 'EPA', category: 'Environmental', value: 52000000, status: 'Tender', riskLevel: 'Medium', createdAt: '2025-11-19T10:10:00Z' }
     ],
     contracts: [
       { id: 'cont-1', title: 'Kumasi Power Plant Construction', agency: 'VRA', contractor: 'Siemens Energy', value: 685000000, status: 'Active', startDate: '2023-06-01', endDate: '2025-12-31' },
       { id: 'cont-2', title: 'Smart Grid Implementation', agency: 'ECG', contractor: 'Huawei Technologies', value: 820000000, status: 'Active', startDate: '2023-09-01', endDate: '2026-08-31' },
-      { id: 'cont-3', title: 'Transmission Line Upgrade', agency: 'GRIDCo', contractor: 'ABB Ltd', value: 420000000, status: 'Active', startDate: '2023-03-01', endDate: '2024-12-31' },
+      { id: 'cont-3', title: 'Transmission Line Upgrade', agency: 'GRIDCo', contractor: 'ABB Ltd', value: 420000000, status: 'Active', startDate: '2023-03-01', endDate: '2025-12-31' },
       { id: 'cont-4', title: 'Fuel Supply Agreement', agency: 'GNPC', contractor: 'Shell Ghana', value: 1850000000, status: 'Active', startDate: '2023-01-01', endDate: '2027-12-31' },
-      { id: 'cont-5', title: 'Maintenance Services', agency: 'BOST', contractor: 'Local Engineering Ltd', value: 125000000, status: 'Completed', startDate: '2023-01-01', endDate: '2023-12-31' },
+      { id: 'cont-5', title: 'Maintenance Services', agency: 'BOST', contractor: 'Local Engineering Ltd', value: 125000000, status: 'Completed', startDate: '2024-01-01', endDate: '2024-12-31' },
       { id: 'cont-6', title: 'Renewable Energy Project', agency: 'VRA', contractor: 'First Solar', value: 680000000, status: 'Active', startDate: '2023-04-01', endDate: '2025-06-30' },
       { id: 'cont-7', title: 'Pipeline Construction', agency: 'GNPC', contractor: 'China Petroleum', value: 1280000000, status: 'Active', startDate: '2023-02-01', endDate: '2026-03-31' },
       { id: 'cont-8', title: 'Substation Development', agency: 'GRIDCo', contractor: 'GE Power', value: 285000000, status: 'Active', startDate: '2023-07-01', endDate: '2025-09-30' },
@@ -171,15 +171,15 @@ export function getServerEnergyData(): ServerEnergyData {
       { id: 'cont-10', title: 'Environmental Monitoring', agency: 'EPA', contractor: 'EcoConsult Ltd', value: 85000000, status: 'Active', startDate: '2023-08-01', endDate: '2025-07-31' }
     ],
     financialReports: [
-      { id: 'fin-1', agency: 'ECG', period: 'Quarterly', totalRevenue: 12400000000, totalExpenses: 9800000000, netIncome: 2600000000, totalAssets: 28500000000, totalLiabilities: 7200000000, year: 2024 },
-      { id: 'fin-2', agency: 'VRA', period: 'Quarterly', totalRevenue: 9200000000, totalExpenses: 6800000000, netIncome: 2400000000, totalAssets: 19800000000, totalLiabilities: 4800000000, year: 2024 },
-      { id: 'fin-3', agency: 'GRIDCo', period: 'Quarterly', totalRevenue: 6800000000, totalExpenses: 5200000000, netIncome: 1600000000, totalAssets: 14200000000, totalLiabilities: 3100000000, year: 2024 },
-      { id: 'fin-4', agency: 'GNPC', period: 'Quarterly', totalRevenue: 15800000000, totalExpenses: 9200000000, netIncome: 6600000000, totalAssets: 38500000000, totalLiabilities: 8200000000, year: 2024 },
-      { id: 'fin-5', agency: 'BOST', period: 'Quarterly', totalRevenue: 4800000000, totalExpenses: 3850000000, netIncome: 950000000, totalAssets: 8200000000, totalLiabilities: 2100000000, year: 2024 },
-      { id: 'fin-6', agency: 'GOIL', period: 'Quarterly', totalRevenue: 8700000000, totalExpenses: 7800000000, netIncome: 900000000, totalAssets: 12800000000, totalLiabilities: 3400000000, year: 2024 },
-      { id: 'fin-7', agency: 'NPA', period: 'Quarterly', totalRevenue: 785000000, totalExpenses: 585000000, netIncome: 200000000, totalAssets: 1850000000, totalLiabilities: 420000000, year: 2024 },
-      { id: 'fin-8', agency: 'PURC', period: 'Quarterly', totalRevenue: 285000000, totalExpenses: 210000000, netIncome: 75000000, totalAssets: 680000000, totalLiabilities: 125000000, year: 2024 },
-      { id: 'fin-9', agency: 'EPA', period: 'Quarterly', totalRevenue: 185000000, totalExpenses: 142000000, netIncome: 43000000, totalAssets: 485000000, totalLiabilities: 98000000, year: 2024 }
+      { id: 'fin-1', agency: 'ECG', period: 'Quarterly', totalRevenue: 12400000000, totalExpenses: 9800000000, netIncome: 2600000000, totalAssets: 28500000000, totalLiabilities: 7200000000, year: 2025 },
+      { id: 'fin-2', agency: 'VRA', period: 'Quarterly', totalRevenue: 9200000000, totalExpenses: 6800000000, netIncome: 2400000000, totalAssets: 19800000000, totalLiabilities: 4800000000, year: 2025 },
+      { id: 'fin-3', agency: 'GRIDCo', period: 'Quarterly', totalRevenue: 6800000000, totalExpenses: 5200000000, netIncome: 1600000000, totalAssets: 14200000000, totalLiabilities: 3100000000, year: 2025 },
+      { id: 'fin-4', agency: 'GNPC', period: 'Quarterly', totalRevenue: 15800000000, totalExpenses: 9200000000, netIncome: 6600000000, totalAssets: 38500000000, totalLiabilities: 8200000000, year: 2025 },
+      { id: 'fin-5', agency: 'BOST', period: 'Quarterly', totalRevenue: 4800000000, totalExpenses: 3850000000, netIncome: 950000000, totalAssets: 8200000000, totalLiabilities: 2100000000, year: 2025 },
+      { id: 'fin-6', agency: 'GOIL', period: 'Quarterly', totalRevenue: 8700000000, totalExpenses: 7800000000, netIncome: 900000000, totalAssets: 12800000000, totalLiabilities: 3400000000, year: 2025 },
+      { id: 'fin-7', agency: 'NPA', period: 'Quarterly', totalRevenue: 785000000, totalExpenses: 585000000, netIncome: 200000000, totalAssets: 1850000000, totalLiabilities: 420000000, year: 2025 },
+      { id: 'fin-8', agency: 'PURC', period: 'Quarterly', totalRevenue: 285000000, totalExpenses: 210000000, netIncome: 75000000, totalAssets: 680000000, totalLiabilities: 125000000, year: 2025 },
+      { id: 'fin-9', agency: 'EPA', period: 'Quarterly', totalRevenue: 185000000, totalExpenses: 142000000, netIncome: 43000000, totalAssets: 485000000, totalLiabilities: 98000000, year: 2025 }
     ],
     assets: [
       { id: 'asset-1', name: 'Akosombo Hydro Plant', agency: 'VRA', category: 'Infrastructure', value: 1850000000, status: 'Active', condition: 'Good' },
@@ -193,12 +193,12 @@ export function getServerEnergyData(): ServerEnergyData {
     ],
     liabilities: [
       { id: 'liab-1', name: 'World Bank Loan', agency: 'ECG', category: 'Long Term', amount: 1850000000, status: 'Current', dueDate: '2030-12-31' },
-      { id: 'liab-2', name: 'Supplier Credit', agency: 'VRA', amount: 680000000, status: 'Current', dueDate: '2024-12-31' },
-      { id: 'liab-3', name: 'Contractor Payments', agency: 'GRIDCo', amount: 420000000, status: 'Current', dueDate: '2024-06-30' },
+      { id: 'liab-2', name: 'Supplier Credit', agency: 'VRA', amount: 680000000, status: 'Current', dueDate: '2025-12-31' },
+      { id: 'liab-3', name: 'Contractor Payments', agency: 'GRIDCo', amount: 420000000, status: 'Current', dueDate: '2025-06-30' },
       { id: 'liab-4', name: 'Bond Issue', agency: 'GNPC', amount: 2850000000, status: 'Current', dueDate: '2028-12-31' },
-      { id: 'liab-5', name: 'Tax Obligations', agency: 'BOST', amount: 125000000, status: 'Overdue', dueDate: '2024-01-31' },
-      { id: 'liab-6', name: 'Trade Payables', agency: 'GOIL', amount: 480000000, status: 'Current', dueDate: '2024-03-31' },
-      { id: 'liab-7', name: 'Short-term Loans', agency: 'NPA', amount: 85000000, status: 'Current', dueDate: '2024-09-30' }
+      { id: 'liab-5', name: 'Tax Obligations', agency: 'BOST', amount: 125000000, status: 'Overdue', dueDate: '2025-01-31' },
+      { id: 'liab-6', name: 'Trade Payables', agency: 'GOIL', amount: 480000000, status: 'Current', dueDate: '2025-03-31' },
+      { id: 'liab-7', name: 'Short-term Loans', agency: 'NPA', amount: 85000000, status: 'Current', dueDate: '2025-09-30' }
     ]
   }
 }

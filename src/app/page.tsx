@@ -249,18 +249,18 @@ function Home() {
         {/* Main Content */}
         <main className="flex-1 p-6">
           <Tabs defaultValue="executive" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-11 bg-card/80 backdrop-blur-md p-1 rounded-lg">
-              <TabsTrigger value="executive" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Executive Summary</TabsTrigger>
-              <TabsTrigger value="agencies" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Agency Dashboards</TabsTrigger>
-              <TabsTrigger value="financial" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Financial Overview</TabsTrigger>
-              <TabsTrigger value="procurements" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Procurements</TabsTrigger>
-              <TabsTrigger value="projects" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Projects & Contracts</TabsTrigger>
-              <TabsTrigger value="esg" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">ESG & Compliance</TabsTrigger>
-              <TabsTrigger value="ai-analytics" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">AI Analytics</TabsTrigger>
-              <TabsTrigger value="advanced-insights" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Advanced Insights</TabsTrigger>
-              <TabsTrigger value="real-time-data" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Real-time Data</TabsTrigger>
-              <TabsTrigger value="collaboration" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Collaboration</TabsTrigger>
-              <TabsTrigger value="digital-twin" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Digital Twin</TabsTrigger>
+            <TabsList className="flex flex-wrap gap-2 bg-card/80 backdrop-blur-md p-3 rounded-lg">
+              <TabsTrigger value="executive" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Executive</TabsTrigger>
+              <TabsTrigger value="agencies" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Agencies</TabsTrigger>
+              <TabsTrigger value="financial" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Financial</TabsTrigger>
+              <TabsTrigger value="procurements" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Procurements</TabsTrigger>
+              <TabsTrigger value="projects" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Projects</TabsTrigger>
+              <TabsTrigger value="esg" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">ESG</TabsTrigger>
+              <TabsTrigger value="ai-analytics" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">AI Analytics</TabsTrigger>
+              <TabsTrigger value="advanced-insights" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Insights</TabsTrigger>
+              <TabsTrigger value="real-time-data" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Real-time</TabsTrigger>
+              <TabsTrigger value="collaboration" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Collaboration</TabsTrigger>
+              <TabsTrigger value="digital-twin" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white text-xs px-3 py-2 rounded-md whitespace-nowrap">Digital Twin</TabsTrigger>
             </TabsList>
 
             <TabsContent value="executive" className="space-y-6">

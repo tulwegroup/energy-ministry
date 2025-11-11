@@ -13,6 +13,190 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Agency {
+  id          String   @id @default(cuid())
+  name        String
+  type        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  procurements Procurement[]
+  projects     Project[]
+  contracts    Contract[]
+  financials   FinancialReport[]
+  assets       Asset[]
+  liabilities  Liability[]
+
+  @@map("agencies")
+}
+
+model Procurement {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  agencyId        String
+  category        String // Equipment, Services, Materials, etc.
+  value           Float
+  currency        String @default("GHS")
+  status          String // Pending, Approved, In Progress, Completed, Cancelled
+  procurementType String // Competitive Bidding, Single Source, Emergency, etc.
+  startDate       DateTime?
+  endDate         DateTime?
+  vendor          String?
+  contactInfo     String?
+  complianceScore Float?
+  riskLevel       String? // Low, Medium, High
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("procurements")
+}
+
+model Project {
+  id              String   @id @default(cuid())
+  name            String
+  description     String
+  agencyId        String
+  category        String // Infrastructure, Technology, Maintenance, etc.
+  budget          Float
+  actualCost      Float?
+  currency        String @default("GHS")
+  status          String // Planning, In Progress, Completed, On Hold, Cancelled
+  priority        String // Low, Medium, High, Critical
+  startDate       DateTime?
+  targetEndDate   DateTime?
+  actualEndDate   DateTime?
+  progress        Float    @default(0)
+  manager         String?
+  location        String?
+  riskLevel       String? // Low, Medium, High
+  complianceScore Float?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("projects")
+}
+
+model Contract {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  agencyId        String
+  contractType    String // Supply, Service, Works, Consultancy, etc.
+  contractor      String
+  value           Float
+  currency        String @default("GHS")
+  startDate       DateTime
+  endDate         DateTime
+  status          String // Active, Expired, Terminated, Completed
+  renewalOption   Boolean  @default(false)
+  complianceScore Float?
+  riskLevel       String? // Low, Medium, High
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("contracts")
+}
+
+model FinancialReport {
+  id             String   @id @default(cuid())
+  agencyId       String
+  period         String   // Monthly, Quarterly, Annual
+  year           Int
+  month          Int?     // For monthly reports
+  quarter        Int?     // For quarterly reports
+  
+  // Revenue and Income
+  totalRevenue   Float
+  operatingRevenue Float?
+  nonOperatingRevenue Float?
+  subsidies      Float?
+  grants         Float?
+  
+  // Expenses and Costs
+  totalExpenses  Float
+  operatingExpenses Float?
+  capitalExpenditures Float?
+  administrativeExpenses Float?
+  maintenanceExpenses Float?
+  
+  // Financial Position
+  totalAssets    Float
+  currentAssets  Float?
+  fixedAssets    Float?
+  totalLiabilities Float
+  currentLiabilities Float?
+  longTermLiabilities Float?
+  equity         Float?
+  
+  // Performance Metrics
+  netIncome      Float?
+  ebitda         Float?
+  cashFlow       Float?
+  debtToEquity   Float?
+  currentRatio   Float?
+  profitMargin   Float?
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("financial_reports")
+}
+
+model Asset {
+  id            String   @id @default(cuid())
+  agencyId      String
+  name          String
+  category      String // Infrastructure, Equipment, Technology, Land, etc.
+  type          String
+  description   String?
+  value         Float
+  currency      String @default("GHS")
+  acquisitionDate DateTime?
+  usefulLife    Int?     // in years
+  depreciationRate Float?
+  currentValue  Float?
+  location      String?
+  status        String // Active, Under Maintenance, Disposed, Retired
+  condition     String? // Excellent, Good, Fair, Poor
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("assets")
+}
+
+model Liability {
+  id            String   @id @default(cuid())
+  agencyId      String
+  name          String
+  category      String // Short Term, Long Term, Contingent, etc.
+  type          String
+  description   String?
+  amount        Float
+  currency      String @default("GHS")
+  dueDate       DateTime?
+  interestRate  Float?
+  creditor      String?
+  status        String // Current, Overdue, Settled, Disputed
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  agency Agency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+
+  @@map("liabilities")
+}
+
 model User {
   id        String   @id @default(cuid())
   email     String   @unique

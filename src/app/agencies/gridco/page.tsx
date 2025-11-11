@@ -21,7 +21,7 @@ import {
   Shield,
   Target,
   Power,
-  Tower
+  Building
 } from 'lucide-react'
 import { 
   TransmissionChart,
@@ -250,7 +250,7 @@ export default function GRIDCoDashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Substations</CardTitle>
-                  <Tower className="h-4 w-4 text-muted-foreground" />
+                  <Building className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{data.overview.substations}</div>
@@ -317,7 +317,7 @@ export default function GRIDCoDashboard() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
-                  <Tower className="h-5 w-5" />
+                  <Building className="h-5 w-5" />
                   <span>Key Substations</span>
                 </CardTitle>
                 <CardDescription>Major substation performance metrics</CardDescription>

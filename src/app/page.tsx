@@ -24,7 +24,11 @@ import {
   Scale,
   Shield,
   Menu,
-  X
+  X,
+  ShoppingCart,
+  Briefcase,
+  FileText,
+  Target
 } from 'lucide-react'
 import { 
   RevenueAnalysisChart, 
@@ -170,10 +174,12 @@ export default function Home() {
         {/* Main Content */}
         <main className="flex-1 p-6">
           <Tabs defaultValue="executive" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-6">
               <TabsTrigger value="executive">Executive Summary</TabsTrigger>
               <TabsTrigger value="agencies">Agency Dashboards</TabsTrigger>
               <TabsTrigger value="financial">Financial Overview</TabsTrigger>
+              <TabsTrigger value="procurements">Procurements</TabsTrigger>
+              <TabsTrigger value="projects">Projects & Contracts</TabsTrigger>
               <TabsTrigger value="esg">ESG & Compliance</TabsTrigger>
             </TabsList>
 
@@ -268,6 +274,111 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Minister's Decision Support */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <Shield className="h-5 w-5" />
+                    <span>Minister's Decision Support</span>
+                  </CardTitle>
+                  <CardDescription>Key insights and recommendations for strategic decisions</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h4 className="font-medium text-green-600">🔍 Critical Success Factors</h4>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-start space-x-2">
+                          <span className="text-green-500 mt-1">✓</span>
+                          <span>Power generation exceeds demand by 5.4% - stable supply</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <span className="text-green-500 mt-1">✓</span>
+                          <span>Transmission reliability at 98.2% - excellent performance</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <span className="text-yellow-500 mt-1">⚠</span>
+                          <span>Fuel stock cover at 18.5 days - requires monitoring</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h4 className="font-medium text-red-600">🚨 Immediate Attention Required</h4>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-start space-x-2">
+                          <span className="text-red-500 mt-1">•</span>
+                          <span>ECG distribution efficiency at 76.8% - critical</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <span className="text-red-500 mt-1">•</span>
+                          <span>Western Region gas shortfall risk - high priority</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <span className="text-orange-500 mt-1">•</span>
+                          <span>6 major contracts totaling ₵288M - active monitoring</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <Separator className="my-4" />
+                  
+                  <div className="space-y-4">
+                    <h4 className="font-medium text-blue-600">📊 Strategic Recommendations</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                      <div className="p-3 bg-blue-50 rounded-lg">
+                        <div className="font-medium">Short Term (1-3 months)</div>
+                        <div>Address ECG distribution losses and gas supply issues</div>
+                      </div>
+                      <div className="p-3 bg-green-50 rounded-lg">
+                        <div className="font-medium">Medium Term (3-6 months)</div>
+                        <div>Complete delayed projects and expand renewable capacity</div>
+                      </div>
+                      <div className="p-3 bg-purple-50 rounded-lg">
+                        <div className="font-medium">Long Term (6-12 months)</div>
+                        <div>Infrastructure modernization and financial optimization</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Key Performance Indicators */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <Target className="h-5 w-5" />
+                    <span>Minister's KPI Dashboard</span>
+                  </CardTitle>
+                  <CardDescription>Top-level performance indicators for the energy sector</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-green-600">82.4</div>
+                      <div className="text-sm text-muted-foreground">Energy Security Index</div>
+                      <div className="text-xs text-green-600">Target: 85</div>
+                    </div>
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-blue-600">₵2.8B</div>
+                      <div className="text-sm text-muted-foreground">Total Revenue</div>
+                      <div className="text-xs text-blue-600">+8.7% YoY</div>
+                    </div>
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-purple-600">85%</div>
+                      <div className="text-sm text-muted-foreground">Avg Agency Performance</div>
+                      <div className="text-xs text-purple-600">Target: 90%</div>
+                    </div>
+                    <div className="text-center p-4 border rounded-lg">
+                      <div className="text-2xl font-bold text-orange-600">23.5%</div>
+                      <div className="text-sm text-muted-foreground">Renewable Energy</div>
+                      <div className="text-xs text-orange-600">Target: 30%</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="agencies" className="space-y-6">
@@ -352,6 +463,417 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                     <ProjectFundingChart />
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Enhanced Financial Position */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <TrendingUp className="h-5 w-5" />
+                      <span>Agency Financial Performance</span>
+                    </CardTitle>
+                    <CardDescription>Net income by agency (₵ Millions)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {data.financialReports.map((report) => (
+                        <div key={report.id} className="flex justify-between items-center p-2 border rounded">
+                          <span className="font-medium">{report.agency}</span>
+                          <div className="text-right">
+                            <div className="font-bold text-green-600">
+                              ₵{(report.netIncome / 1000000).toFixed(1)}M
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {report.period} {report.year}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Building className="h-5 w-5" />
+                      <span>Asset Portfolio</span>
+                    </CardTitle>
+                    <CardDescription>Major assets across agencies</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {data.assets.slice(0, 5).map((asset) => (
+                        <div key={asset.id} className="p-2 border rounded">
+                          <div className="flex justify-between items-start mb-1">
+                            <h4 className="font-medium text-sm">{asset.name}</h4>
+                            <Badge variant="outline" className="text-xs">{asset.agency}</Badge>
+                          </div>
+                          <div className="grid grid-cols-2 gap-1 text-xs text-muted-foreground">
+                            <span>₵{(asset.value / 1000000).toFixed(1)}M</span>
+                            <span>{asset.category}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <AlertTriangle className="h-5 w-5" />
+                      <span>Liabilities & Obligations</span>
+                    </CardTitle>
+                    <CardDescription>Outstanding liabilities by agency</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {data.liabilities.map((liability) => (
+                        <div key={liability.id} className="p-2 border rounded">
+                          <div className="flex justify-between items-start mb-1">
+                            <h4 className="font-medium text-sm">{liability.name}</h4>
+                            <Badge variant={liability.status === 'Overdue' ? 'destructive' : 'outline'} className="text-xs">
+                              {liability.status}
+                            </Badge>
+                          </div>
+                          <div className="grid grid-cols-2 gap-1 text-xs text-muted-foreground">
+                            <span>₵{(liability.amount / 1000000).toFixed(1)}M</span>
+                            <span>{liability.category}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Financial Health Summary */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Financial Health Summary</CardTitle>
+                  <CardDescription>Consolidated financial position across all agencies</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-600">
+                        ₵{(data.financialReports.reduce((sum, r) => sum + r.totalAssets, 0) / 1000000000).toFixed(1)}B
+                      </div>
+                      <div className="text-sm text-muted-foreground">Total Assets</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-red-600">
+                        ₵{(data.financialReports.reduce((sum, r) => sum + r.totalLiabilities, 0) / 1000000000).toFixed(1)}B
+                      </div>
+                      <div className="text-sm text-muted-foreground">Total Liabilities</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600">
+                        ₵{(data.financialReports.reduce((sum, r) => sum + r.netIncome, 0) / 1000000000).toFixed(1)}B
+                      </div>
+                      <div className="text-sm text-muted-foreground">Net Income</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-purple-600">
+                        {data.financialReports.length}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Agencies Reporting</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="procurements" className="space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Procurement Overview */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <ShoppingCart className="h-5 w-5" />
+                      <span>Procurement Overview</span>
+                    </CardTitle>
+                    <CardDescription>Recent procurement activities across all agencies</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {data.procurements.slice(0, 5).map((proc) => (
+                        <div key={proc.id} className="p-3 border rounded-lg">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-medium">{proc.title}</h4>
+                            <Badge variant={proc.riskLevel === 'High' ? 'destructive' : proc.riskLevel === 'Medium' ? 'secondary' : 'default'}>
+                              {proc.riskLevel}
+                            </Badge>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground mb-2">
+                            <span>Agency: {proc.agency}</span>
+                            <span>Category: {proc.category}</span>
+                            <span>Value: ₵{(proc.value / 1000000).toFixed(1)}M</span>
+                            <span>Status: {proc.status}</span>
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Created: {new Date(proc.createdAt).toLocaleDateString()}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Procurement Analytics */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Procurement Analytics</CardTitle>
+                    <CardDescription>Procurement trends and insights</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-600">
+                            ₵{data.procurements.reduce((sum, p) => sum + p.value, 0).toLocaleString()}
+                          </div>
+                          <div className="text-sm text-muted-foreground">Total Value</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-green-600">
+                            {data.procurements.filter(p => p.status === 'Completed').length}
+                          </div>
+                          <div className="text-sm text-muted-foreground">Completed</div>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-medium">By Agency</h4>
+                        {Object.entries(
+                          data.procurements.reduce((acc, proc) => {
+                            acc[proc.agency] = (acc[proc.agency] || 0) + 1;
+                            return acc;
+                          }, {} as Record<string, number>)
+                        ).map(([agency, count]) => (
+                          <div key={agency} className="flex justify-between items-center">
+                            <span className="text-sm">{agency}</span>
+                            <Badge variant="outline">{count}</Badge>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Risk Assessment & Compliance */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <AlertTriangle className="h-5 w-5" />
+                      <span>Risk Assessment</span>
+                    </CardTitle>
+                    <CardDescription>Procurement risk analysis by category</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-3 gap-4 text-center">
+                        <div className="p-3 bg-red-50 rounded-lg">
+                          <div className="text-2xl font-bold text-red-600">
+                            {data.procurements.filter(p => p.riskLevel === 'High').length}
+                          </div>
+                          <div className="text-sm text-muted-foreground">High Risk</div>
+                        </div>
+                        <div className="p-3 bg-yellow-50 rounded-lg">
+                          <div className="text-2xl font-bold text-yellow-600">
+                            {data.procurements.filter(p => p.riskLevel === 'Medium').length}
+                          </div>
+                          <div className="text-sm text-muted-foreground">Medium Risk</div>
+                        </div>
+                        <div className="p-3 bg-green-50 rounded-lg">
+                          <div className="text-2xl font-bold text-green-600">
+                            {data.procurements.filter(p => p.riskLevel === 'Low').length}
+                          </div>
+                          <div className="text-sm text-muted-foreground">Low Risk</div>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-medium">High Risk Procurements</h4>
+                        {data.procurements.filter(p => p.riskLevel === 'High').map((proc) => (
+                          <div key={proc.id} className="p-2 border border-red-200 rounded bg-red-50">
+                            <div className="flex justify-between items-center">
+                              <span className="text-sm font-medium">{proc.title}</span>
+                              <Badge variant="destructive" className="text-xs">{proc.agency}</Badge>
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              ₵{(proc.value / 1000000).toFixed(1)}M • {proc.category}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Shield className="h-5 w-5" />
+                      <span>Compliance Monitoring</span>
+                    </CardTitle>
+                    <CardDescription>Procurement compliance status</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-green-600">
+                            {Math.round((data.procurements.filter(p => p.status === 'Completed' || p.status === 'Approved').length / data.procurements.length) * 100)}%
+                          </div>
+                          <div className="text-sm text-muted-foreground">Compliance Rate</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-600">
+                            {data.procurements.filter(p => p.status === 'Pending').length}
+                          </div>
+                          <div className="text-sm text-muted-foreground">Pending Review</div>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-medium">By Status</h4>
+                        {Object.entries(
+                          data.procurements.reduce((acc, proc) => {
+                            acc[proc.status] = (acc[proc.status] || 0) + 1;
+                            return acc;
+                          }, {} as Record<string, number>)
+                        ).map(([status, count]) => (
+                          <div key={status} className="flex justify-between items-center">
+                            <span className="text-sm">{status}</span>
+                            <div className="flex items-center space-x-2">
+                              <Progress value={(count / data.procurements.length) * 100} className="h-2 w-16" />
+                              <Badge variant="outline" className="text-xs">{count}</Badge>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Performance Benchmarking */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <TrendingUp className="h-5 w-5" />
+                    <span>Agency Performance Benchmarking</span>
+                  </CardTitle>
+                  <CardDescription>Comparative analysis of agency procurement efficiency</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {data.agencies.slice(0, 3).map((agency) => {
+                        const agencyProcurements = data.procurements.filter(p => p.agency === agency.name);
+                        const avgValue = agencyProcurements.length > 0 ? agencyProcurements.reduce((sum, p) => sum + p.value, 0) / agencyProcurements.length : 0;
+                        const completionRate = agencyProcurements.length > 0 ? (agencyProcurements.filter(p => p.status === 'Completed').length / agencyProcurements.length) * 100 : 0;
+                        
+                        return (
+                          <div key={agency.id} className="p-4 border rounded-lg">
+                            <div className="flex justify-between items-start mb-3">
+                              <h4 className="font-medium">{agency.name}</h4>
+                              <Badge variant="outline">{agency.performance}%</Badge>
+                            </div>
+                            <div className="space-y-2">
+                              <div className="flex justify-between text-sm">
+                                <span>Procurements</span>
+                                <span className="font-medium">{agencyProcurements.length}</span>
+                              </div>
+                              <div className="flex justify-between text-sm">
+                                <span>Avg Value</span>
+                                <span className="font-medium">₵{(avgValue / 1000000).toFixed(1)}M</span>
+                              </div>
+                              <div className="flex justify-between text-sm">
+                                <span>Completion</span>
+                                <span className="font-medium">{completionRate.toFixed(0)}%</span>
+                              </div>
+                              <Progress value={completionRate} className="h-2 mt-1" />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="projects" className="space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Active Projects */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Briefcase className="h-5 w-5" />
+                      <span>Active Projects</span>
+                    </CardTitle>
+                    <CardDescription>Current projects across all agencies</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {data.projects.map((project) => (
+                        <div key={project.id} className="p-3 border rounded-lg">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-medium">{project.name}</h4>
+                            <Badge variant={project.status === 'on-track' ? 'default' : project.status === 'delayed' ? 'secondary' : 'destructive'}>
+                              {project.status}
+                            </Badge>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground mb-2">
+                            <span>Cost: {project.cost}</span>
+                            <span>Variance: {project.variance}</span>
+                          </div>
+                          <div className="space-y-1">
+                            <div className="flex justify-between text-sm">
+                              <span>Progress</span>
+                              <span>{project.progress}%</span>
+                            </div>
+                            <Progress value={project.progress} className="h-2" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Major Contracts */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <FileText className="h-5 w-5" />
+                      <span>Major Contracts</span>
+                    </CardTitle>
+                    <CardDescription>Active contracts and their status</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {data.contracts.map((contract) => (
+                        <div key={contract.id} className="p-3 border rounded-lg">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-medium">{contract.title}</h4>
+                            <Badge variant={contract.status === 'Active' ? 'default' : 'secondary'}>
+                              {contract.status}
+                            </Badge>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground mb-2">
+                            <span>Agency: {contract.agency}</span>
+                            <span>Contractor: {contract.contractor}</span>
+                            <span>Value: ₵{(contract.value / 1000000).toFixed(1)}M</span>
+                            <span>Ends: {new Date(contract.endDate).getFullYear()}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               </div>

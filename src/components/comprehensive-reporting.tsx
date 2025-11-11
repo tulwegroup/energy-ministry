@@ -263,7 +263,7 @@ export default function ComprehensiveReporting() {
       id: 'export-5',
       name: 'Image Export',
       format: 'PNG',
-      icon: <Image className="h-5 w-5" />,
+      icon: <Image className="h-5 w-5" alt="Export icon" />,
       description: 'High-quality images of charts and visualizations',
       features: ['Multiple Formats', 'High Resolution', 'Transparent Background']
     },

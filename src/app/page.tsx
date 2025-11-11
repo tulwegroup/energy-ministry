@@ -95,7 +95,7 @@ interface ServerData {
   }>
 }
 
-export default function Home() {
+function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
   // Initialize with server data directly to avoid loading state
@@ -1115,13 +1115,4 @@ export default function Home() {
   )
 }
 
-// Wrap the component with AuthGuard
-function ProtectedHome() {
-  return (
-    <AuthGuard>
-      <Home />
-    </AuthGuard>
-  )
-}
-
-export default ProtectedHome
+export default Home

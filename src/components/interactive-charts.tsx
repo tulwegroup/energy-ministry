@@ -154,11 +154,11 @@ export default function InteractiveCharts() {
 
   // Market share data
   const marketShareData = [
-    { name: 'ECG', value: 35.2, customers: 4.1M, revenue: 7.8 },
-    { name: 'VRA', value: 28.7, customers: 2.8M, revenue: 5.8 },
-    { name: 'GRIDCo', value: 18.4, customers: 1.2M, revenue: 4.2 },
-    { name: 'GNPC', value: 12.8, customers: 0.8M, revenue: 8.2 },
-    { name: 'BOST', value: 4.9, customers: 0.3M, revenue: 2.4 }
+    { name: 'ECG', value: 35.2, customers: '4.1M', revenue: 7.8 },
+    { name: 'VRA', value: 28.7, customers: '2.8M', revenue: 5.8 },
+    { name: 'GRIDCo', value: 18.4, customers: '1.2M', revenue: 4.2 },
+    { name: 'GNPC', value: 12.8, customers: '0.8M', revenue: 8.2 },
+    { name: 'BOST', value: 4.9, customers: '0.3M', revenue: 2.4 }
   ]
 
   // Predictive analytics data

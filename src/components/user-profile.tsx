@@ -19,6 +19,8 @@ import {
   CheckCircle,
   AlertTriangle,
   Clock,
+  Zap,
+  Brain,
   MapPin,
   Mail,
   Phone

@@ -26,7 +26,10 @@ import {
   Grid,
   List,
   Maximize,
-  Minimize
+  Minimize,
+  Signal,
+  Wifi,
+  Battery
 } from 'lucide-react'
 
 interface DeviceMetrics {
@@ -228,7 +231,7 @@ export default function MobileOptimization() {
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-4">
         <div className="flex items-center justify-between text-white">
           <div>
-            <h3 className="font-bold text-lg">NECID</h1>
+            <h3 className="font-bold text-lg">NECID</h3>
             <p className="text-xs opacity-90">Energy Dashboard</p>
           </div>
           <Bell className="h-5 w-5" />

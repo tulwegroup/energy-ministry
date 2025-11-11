@@ -8,6 +8,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { 
   Activity, 
   Zap, 
@@ -28,7 +29,9 @@ import {
   ShoppingCart,
   Briefcase,
   FileText,
-  Target
+  Target,
+  User,
+  LogOut
 } from 'lucide-react'
 import { 
   RevenueAnalysisChart, 
@@ -38,7 +41,14 @@ import {
   SDG7PerformanceChart,
   EnergyMixChart 
 } from '@/components/charts'
+import AIPredictiveAnalytics from '@/components/ai-predictive-analytics'
+import RealTimeCollaboration from '@/components/real-time-collaboration'
+import DigitalTwinIntegration from '@/components/digital-twin-integration'
+import AdvancedAIInsights from '@/components/advanced-ai-insights'
+import RealTimeDataIntegration from '@/components/real-time-data-integration'
+import UserProfile from '@/components/user-profile'
 import { getServerEnergyData } from '@/lib/server-data'
+import { useAuth } from '@/lib/auth-context'
 import Link from 'next/link'
 
 // Server data interface
@@ -87,9 +97,11 @@ interface ServerData {
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [profileOpen, setProfileOpen] = useState(false)
   // Initialize with server data directly to avoid loading state
   const [data, setData] = useState<ServerData | null>(getServerEnergyData())
   const [isClient, setIsClient] = useState(true)
+  const { user, logout } = useAuth()
 
   const agencyIcons = {
     gnpc: Building,
@@ -117,7 +129,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card">
+      <header className="border-b bg-card/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex h-16 items-center px-4">
           <Button
             variant="ghost"
@@ -129,36 +141,99 @@ export default function Home() {
           </Button>
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <Zap className="h-8 w-8 text-primary" />
+              <div className="p-2 rounded-lg energy-gradient">
+                <Zap className="h-6 w-6 text-white" />
+              </div>
               <div>
-                <h1 className="text-xl font-bold">NECID</h1>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">NECID</h1>
                 <p className="text-xs text-muted-foreground">National Energy Command & Insights Dashboard</p>
               </div>
             </div>
           </div>
           <div className="ml-auto flex items-center space-x-4">
-            <Badge variant="outline">Minister of Energy</Badge>
-            <div className="text-sm text-muted-foreground">
-              Last Updated: {isClient ? 'Live' : 'Server Data'}
+            <Badge variant="outline" className="professional-gradient text-white border-0">Minister of Energy</Badge>
+            <div className="text-sm text-muted-foreground flex items-center space-x-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full pulse-animation"></div>
+              <span>{isClient ? 'Live' : 'Server Data'}</span>
             </div>
+            {user && (
+              <div className="relative">
+                <Button
+                  variant="ghost"
+                  className="flex items-center space-x-2"
+                  onClick={() => setProfileOpen(!profileOpen)}
+                >
+                  <Avatar className="h-8 w-8">
+                    <AvatarFallback className="text-xs">
+                      {user.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="hidden sm:inline-block text-sm">{user.name}</span>
+                </Button>
+                
+                {profileOpen && (
+                  <div className="absolute right-0 mt-2 w-80 bg-white border rounded-lg shadow-lg z-50">
+                    <div className="p-4 border-b">
+                      <div className="flex items-center space-x-3">
+                        <Avatar className="h-10 w-10">
+                          <AvatarFallback>
+                            {user.name.split(' ').map(n => n[0]).join('')}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="font-medium">{user.name}</p>
+                          <p className="text-sm text-muted-foreground">{user.role} • {user.agency}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-2">
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start"
+                        onClick={() => {
+                          setProfileOpen(false)
+                          // Navigate to profile page or show profile modal
+                        }}
+                      >
+                        <User className="h-4 w-4 mr-2" />
+                        Profile
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        className="w-full justify-start"
+                        onClick={() => {
+                          setProfileOpen(false)
+                          logout()
+                        }}
+                      >
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Logout
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </header>
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className={`w-64 border-r bg-card ${sidebarOpen ? 'block' : 'hidden'} md:block`}>
+        <aside className={`w-64 border-r bg-card/80 backdrop-blur-md ${sidebarOpen ? 'block' : 'hidden'} md:block`}>
           <div className="p-4">
-            <h2 className="text-lg font-semibold mb-4">Energy Agencies</h2>
+            <h2 className="text-lg font-semibold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Energy Agencies</h2>
             <nav className="space-y-2">
               {data.agencies.map((agency) => {
                 const IconComponent = agencyIcons[agency.id as keyof typeof agencyIcons] || Building
                 return (
                   <Link key={agency.id} href={`/agencies/${agency.id}`}>
                     <button
-                      className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-accent text-left"
+                      className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/50 text-left transition-all duration-200 hover-lift"
                     >
-                      <IconComponent className="h-5 w-5" />
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
+                        <IconComponent className="h-4 w-4 text-white" />
+                      </div>
                       <div>
                         <div className="font-medium">{agency.name}</div>
                         <div className="text-xs text-muted-foreground">Energy Sector Agency</div>
@@ -174,20 +249,25 @@ export default function Home() {
         {/* Main Content */}
         <main className="flex-1 p-6">
           <Tabs defaultValue="executive" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-6">
-              <TabsTrigger value="executive">Executive Summary</TabsTrigger>
-              <TabsTrigger value="agencies">Agency Dashboards</TabsTrigger>
-              <TabsTrigger value="financial">Financial Overview</TabsTrigger>
-              <TabsTrigger value="procurements">Procurements</TabsTrigger>
-              <TabsTrigger value="projects">Projects & Contracts</TabsTrigger>
-              <TabsTrigger value="esg">ESG & Compliance</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-11 bg-card/80 backdrop-blur-md p-1 rounded-lg">
+              <TabsTrigger value="executive" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Executive Summary</TabsTrigger>
+              <TabsTrigger value="agencies" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Agency Dashboards</TabsTrigger>
+              <TabsTrigger value="financial" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Financial Overview</TabsTrigger>
+              <TabsTrigger value="procurements" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Procurements</TabsTrigger>
+              <TabsTrigger value="projects" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Projects & Contracts</TabsTrigger>
+              <TabsTrigger value="esg" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">ESG & Compliance</TabsTrigger>
+              <TabsTrigger value="ai-analytics" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">AI Analytics</TabsTrigger>
+              <TabsTrigger value="advanced-insights" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Advanced Insights</TabsTrigger>
+              <TabsTrigger value="real-time-data" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Real-time Data</TabsTrigger>
+              <TabsTrigger value="collaboration" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Collaboration</TabsTrigger>
+              <TabsTrigger value="digital-twin" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-blue-500 data-[state=active]:text-white">Digital Twin</TabsTrigger>
             </TabsList>
 
             <TabsContent value="executive" className="space-y-6">
               {/* Critical Alerts */}
               <div className="space-y-3">
                 {data.alerts.slice(0, 3).map((alert, index) => (
-                  <Alert key={alert.id} className={alert.type === 'critical' ? 'border-red-500' : alert.type === 'warning' ? 'border-yellow-500' : 'border-blue-500'}>
+                  <Alert key={alert.id} className={`${alert.type === 'critical' ? 'border-red-500 bg-red-50/50' : alert.type === 'warning' ? 'border-yellow-500 bg-yellow-50/50' : 'border-blue-500 bg-blue-50/50'} backdrop-blur-sm card-shadow`}>
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>{alert.message}</AlertDescription>
                   </Alert>
@@ -197,19 +277,22 @@ export default function Home() {
               {/* Executive Metrics Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {data.metrics.map((metric, index) => (
-                  <Card key={index}>
+                  <Card key={index} className="card-shadow hover-lift bg-card/80 backdrop-blur-md">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                       <CardTitle className="text-sm font-medium">{metric.title}</CardTitle>
-                      <Activity className="h-4 w-4 text-muted-foreground" />
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
+                        <Activity className="h-4 w-4 text-white" />
+                      </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold">{metric.value}</div>
+                      <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{metric.value}</div>
                       {metric.demand && (
                         <p className="text-xs text-muted-foreground">Demand: {metric.demand}</p>
                       )}
                       <div className="flex items-center space-x-2 mt-2">
                         <Badge 
                           variant={metric.status === 'healthy' ? 'default' : metric.status === 'warning' ? 'secondary' : 'destructive'}
+                          className={`${metric.status === 'healthy' ? 'bg-green-500' : metric.status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'} text-white border-0`}
                         >
                           {metric.status}
                         </Badge>
@@ -221,29 +304,31 @@ export default function Home() {
               </div>
 
               {/* Financial Summary */}
-              <Card>
+              <Card className="card-shadow bg-card/80 backdrop-blur-md">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
-                    <DollarSign className="h-5 w-5" />
-                    <span>Fiscal Summary</span>
+                    <div className="p-2 rounded-lg success-gradient">
+                      <DollarSign className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Fiscal Summary</span>
                   </CardTitle>
                   <CardDescription>Consolidated financial position across all agencies</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center">
+                    <div className="text-center p-4 rounded-lg bg-gradient-to-br from-green-50 to-blue-50">
                       <div className="text-2xl font-bold text-green-600">{data.financial.totalRevenue}</div>
                       <div className="text-sm text-muted-foreground">Total Revenue</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-4 rounded-lg bg-gradient-to-br from-orange-50 to-red-50">
                       <div className="text-2xl font-bold text-orange-600">{data.financial.subsidies}</div>
                       <div className="text-sm text-muted-foreground">Subsidies</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-4 rounded-lg bg-gradient-to-br from-yellow-50 to-amber-50">
                       <div className="text-2xl font-bold text-yellow-600">{data.financial.receivables}</div>
                       <div className="text-sm text-muted-foreground">Receivables</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-4 rounded-lg bg-gradient-to-br from-red-50 to-pink-50">
                       <div className="text-2xl font-bold text-red-600">{data.financial.liabilities}</div>
                       <div className="text-sm text-muted-foreground">Liabilities</div>
                     </div>
@@ -252,21 +337,26 @@ export default function Home() {
               </Card>
 
               {/* Flagship Projects */}
-              <Card>
+              <Card className="card-shadow bg-card/80 backdrop-blur-md">
                 <CardHeader>
-                  <CardTitle>Flagship Project Tracker</CardTitle>
+                  <CardTitle className="flex items-center space-x-2">
+                    <div className="p-2 rounded-lg warning-gradient">
+                      <Target className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">Flagship Project Tracker</span>
+                  </CardTitle>
                   <CardDescription>Top ongoing projects with completion status</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {data.projects.slice(0, 3).map((project, index) => (
-                      <div key={project.id}>
+                      <div key={project.id} className="p-4 rounded-lg bg-gradient-to-r from-gray-50 to-white border">
                         <div className="flex justify-between items-center mb-2">
                           <div>
                             <h4 className="font-medium">{project.name}</h4>
                             <p className="text-sm text-muted-foreground">{project.cost} • Variance: {project.variance}</p>
                           </div>
-                          <Badge variant="outline">{project.progress}%</Badge>
+                          <Badge variant="outline" className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">{project.progress}%</Badge>
                         </div>
                         <Progress value={project.progress} className="h-2" />
                       </div>
@@ -276,17 +366,19 @@ export default function Home() {
               </Card>
 
               {/* Minister's Decision Support */}
-              <Card>
+              <Card className="card-shadow bg-card/80 backdrop-blur-md">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
-                    <Shield className="h-5 w-5" />
-                    <span>Minister's Decision Support</span>
+                    <div className="p-2 rounded-lg professional-gradient">
+                      <Shield className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Minister's Decision Support</span>
                   </CardTitle>
                   <CardDescription>Key insights and recommendations for strategic decisions</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
+                    <div className="space-y-4 p-4 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50">
                       <h4 className="font-medium text-green-600">🔍 Critical Success Factors</h4>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-start space-x-2">
@@ -304,7 +396,7 @@ export default function Home() {
                       </ul>
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-4 p-4 rounded-lg bg-gradient-to-br from-red-50 to-pink-50">
                       <h4 className="font-medium text-red-600">🚨 Immediate Attention Required</h4>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-start space-x-2">
@@ -328,15 +420,15 @@ export default function Home() {
                   <div className="space-y-4">
                     <h4 className="font-medium text-blue-600">📊 Strategic Recommendations</h4>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                      <div className="p-3 bg-blue-50 rounded-lg">
+                      <div className="p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg hover-lift">
                         <div className="font-medium">Short Term (1-3 months)</div>
                         <div>Address ECG distribution losses and gas supply issues</div>
                       </div>
-                      <div className="p-3 bg-green-50 rounded-lg">
+                      <div className="p-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg hover-lift">
                         <div className="font-medium">Medium Term (3-6 months)</div>
                         <div>Complete delayed projects and expand renewable capacity</div>
                       </div>
-                      <div className="p-3 bg-purple-50 rounded-lg">
+                      <div className="p-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg hover-lift">
                         <div className="font-medium">Long Term (6-12 months)</div>
                         <div>Infrastructure modernization and financial optimization</div>
                       </div>
@@ -991,9 +1083,45 @@ export default function Home() {
                 </CardContent>
               </Card>
             </TabsContent>
+
+            {/* AI Analytics Tab */}
+            <TabsContent value="ai-analytics" className="space-y-6">
+              <AIPredictiveAnalytics />
+            </TabsContent>
+
+            {/* Advanced Insights Tab */}
+            <TabsContent value="advanced-insights" className="space-y-6">
+              <AdvancedAIInsights />
+            </TabsContent>
+
+            {/* Real-time Data Tab */}
+            <TabsContent value="real-time-data" className="space-y-6">
+              <RealTimeDataIntegration />
+            </TabsContent>
+
+            {/* Collaboration Tab */}
+            <TabsContent value="collaboration" className="space-y-6">
+              <RealTimeCollaboration />
+            </TabsContent>
+
+            {/* Digital Twin Tab */}
+            <TabsContent value="digital-twin" className="space-y-6">
+              <DigitalTwinIntegration />
+            </TabsContent>
           </Tabs>
         </main>
       </div>
     </div>
   )
 }
+
+// Wrap the component with AuthGuard
+function ProtectedHome() {
+  return (
+    <AuthGuard>
+      <Home />
+    </AuthGuard>
+  )
+}
+
+export default ProtectedHome
